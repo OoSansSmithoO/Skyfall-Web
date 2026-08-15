@@ -1,0 +1,695 @@
+/* ============================================================
+   SKYFALL / PRODUCTS
+   ============================================================ */
+
+.products-section {
+  position: relative;
+
+  width: min(calc(100% - var(--page-gutter)), var(--max-width));
+  margin: 0 auto;
+  padding: 40px 0 150px;
+}
+
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.products-header {
+  padding: 70px 0;
+
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 90px;
+}
+
+.products-header h2 {
+  margin: 0;
+
+  font-size: clamp(3.5rem, 6vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+}
+
+.products-header h2 span {
+  display: block;
+  margin-top: 12px;
+
+  color: var(--muted);
+
+  font-size: 0.42em;
+  font-weight: 400;
+}
+
+.products-header-copy {
+  align-self: end;
+}
+
+.products-header-copy p {
+  margin: 0 0 28px;
+
+  color: #aebdca;
+
+  line-height: 1.75;
+}
+
+
+/* ============================================================
+   GRID
+   ============================================================ */
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+
+  border: 1px solid var(--line);
+
+  background: var(--line);
+}
+
+
+/* ============================================================
+   PRODUCT CARD
+   ============================================================ */
+
+.product-card {
+  position: relative;
+
+  min-height: 520px;
+  padding: 28px;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(121, 191, 255, 0.018),
+      transparent 46%
+    ),
+    #070b10;
+
+  transition:
+    background 250ms ease,
+    transform 250ms var(--ease-standard),
+    box-shadow 250ms ease;
+}
+
+.product-card:hover {
+  z-index: 2;
+
+  transform: translateY(-3px);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(121, 191, 255, 0.05),
+      transparent 58%
+    ),
+    #091018;
+
+  box-shadow:
+    inset 0 0 60px rgba(121, 191, 255, 0.025);
+}
+
+
+/* ============================================================
+   TOP META
+   ============================================================ */
+
+.product-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  color: var(--accent);
+
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+}
+
+.product-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  color: #9eb4c5;
+}
+
+.product-status-dot {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: var(--accent);
+
+  box-shadow:
+    0 0 8px rgba(121, 191, 255, 0.45);
+}
+
+.product-family {
+  margin-top: 20px;
+
+  color: #7f98aa;
+
+  font-size: 0.52rem;
+  letter-spacing: 0.14em;
+}
+
+
+/* ============================================================
+   PRODUCT VISUAL
+   ============================================================ */
+
+.product-card-visual {
+  position: relative;
+
+  min-height: 190px;
+
+  display: grid;
+  place-items: center;
+}
+
+    .product-engineering-visual {
+    width: 100%;
+    max-width: 390px;
+    height: 205px;
+
+    overflow: visible;
+    }
+
+    .product-engineering-visual path,
+    .product-engineering-visual line,
+    .product-engineering-visual rect,
+    .product-engineering-visual ellipse,
+    .product-engineering-visual circle {
+    fill: none;
+
+    stroke: rgba(121, 191, 255, 0.62);
+    stroke-width: 1.1;
+
+    vector-effect: non-scaling-stroke;
+    }
+    
+    .product-engineering-visual text {
+    fill: #9db6c7;
+
+    font-family:
+        "SFMono-Regular",
+        "Cascadia Code",
+        Consolas,
+        monospace;
+
+    font-size: 7px;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    }    
+
+/* ============================================================
+   BODY
+   ============================================================ */
+
+.product-card-body {
+  margin-top: auto;
+}
+
+.product-card-body h3 {
+  margin: 0 0 14px;
+
+  font-size: 1.4rem;
+}
+
+.product-card-body p {
+  margin: 0;
+
+  color: #aebdca;
+
+  font-size: 0.84rem;
+  line-height: 1.65;
+}
+
+
+/* ============================================================
+   TAGS
+   ============================================================ */
+
+.product-tags {
+  margin-top: 24px;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.product-tags span {
+  padding: 6px 8px;
+
+  border: 1px solid rgba(121, 191, 255, 0.16);
+
+  color: #a4bacb;
+
+  background: rgba(121, 191, 255, 0.02);
+
+  font-size: 0.44rem;
+  letter-spacing: 0.09em;
+}
+
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.product-card-footer {
+  margin-top: 25px;
+  padding-top: 17px;
+
+  display: flex;
+  justify-content: space-between;
+
+  border-top: 1px solid var(--line);
+
+  color: #8099ab;
+
+  font-size: 0.48rem;
+  letter-spacing: 0.11em;
+}
+
+.product-card-footer span:last-child {
+  color: var(--accent);
+
+  transition:
+    transform 220ms var(--ease-standard);
+}
+
+.product-card:hover .product-card-footer span:last-child {
+  transform: translateX(4px);
+}
+
+
+/* ============================================================
+   TOUCH DEVICES
+   ============================================================ */
+
+@media (hover: none), (pointer: coarse) {
+  .product-card {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(121, 191, 255, 0.035),
+        transparent 55%
+      ),
+      #081019;
+  }
+
+  .product-card-body p {
+    color: #b7c5cf;
+  }
+
+  .product-tags span {
+    color: #b2c6d5;
+
+    border-color:
+      rgba(121, 191, 255, 0.22);
+  }
+}
+
+.product-engineering-visual {
+  width: 100%;
+  max-width: 430px;
+  height: auto;
+
+  overflow: visible;
+}
+
+.product-engineering-visual path,
+.product-engineering-visual line,
+.product-engineering-visual rect,
+.product-engineering-visual circle {
+  fill: none;
+
+  stroke: rgba(121, 191, 255, 0.55);
+  stroke-width: 1;
+
+  vector-effect: non-scaling-stroke;
+}
+
+.product-engineering-visual text {
+  fill: #7f9caf;
+
+  font-size: 7px;
+  font-family: monospace;
+  letter-spacing: 1.4px;
+}
+
+.diagram-orbit path {
+  stroke: rgba(121, 191, 255, 0.12);
+}
+
+.diagram-net path {
+  stroke: rgba(121, 191, 255, 0.32);
+}
+
+.diagram-target path {
+  stroke: rgba(255, 255, 255, 0.32);
+}
+
+.diagram-nodes circle {
+  fill: #79bfff;
+
+  stroke: none;
+
+  filter:
+    drop-shadow(
+      0 0 4px rgba(121, 191, 255, 0.7)
+    );
+}
+
+/* ============================================================
+   PRODUCT ENGINEERING LINE ART
+   ============================================================ */
+
+.product-engineering-visual {
+  width: 100%;
+  max-width: 430px;
+  height: auto;
+
+  overflow: visible;
+}
+
+.product-engineering-visual path,
+.product-engineering-visual line,
+.product-engineering-visual rect,
+.product-engineering-visual ellipse,
+.product-engineering-visual circle {
+  fill: none;
+
+  stroke: rgba(121, 191, 255, 0.52);
+  stroke-width: 1;
+
+  vector-effect: non-scaling-stroke;
+
+  transition:
+    stroke 280ms ease,
+    opacity 280ms ease;
+}
+
+.product-engineering-visual text {
+  fill: #8ca7b9;
+
+  font-family:
+    "SFMono-Regular",
+    "Cascadia Code",
+    Consolas,
+    monospace;
+
+  font-size: 7px;
+  letter-spacing: 1.25px;
+}
+
+.product-card:hover .product-engineering-visual path,
+.product-card:hover .product-engineering-visual line,
+.product-card:hover .product-engineering-visual rect,
+.product-card:hover .product-engineering-visual ellipse {
+  stroke: rgba(121, 191, 255, 0.7);
+}
+
+
+/* Background/orbital geometry */
+
+.diagram-orbit-line,
+.diagram-earth-limb {
+  stroke:
+    rgba(121, 191, 255, 0.13) !important;
+}
+
+
+/* Target objects */
+
+.diagram-target-shape {
+  stroke:
+    rgba(220, 232, 240, 0.42) !important;
+}
+
+
+/* Capture system */
+
+.diagram-net path {
+  stroke:
+    rgba(121, 191, 255, 0.31);
+}
+
+.diagram-tether-line {
+  stroke:
+    rgba(121, 191, 255, 0.72) !important;
+}
+
+.diagram-nodes circle,
+.diagram-lock-point {
+  fill: var(--accent);
+
+  stroke: none !important;
+
+  filter:
+    drop-shadow(
+      0 0 4px rgba(121, 191, 255, 0.7)
+    );
+}
+
+
+/* Mission Core */
+
+.diagram-core rect:first-child {
+  stroke:
+    rgba(121, 191, 255, 0.75);
+}
+
+.diagram-network-lines line {
+  stroke:
+    rgba(121, 191, 255, 0.28);
+}
+
+.diagram-small-sats rect {
+  stroke:
+    rgba(121, 191, 255, 0.5);
+}
+
+
+/* Proximity operations */
+
+.diagram-guidance-line {
+  stroke:
+    rgba(121, 191, 255, 0.5) !important;
+
+  stroke-dasharray: 5 5;
+}
+
+.diagram-range-gates ellipse {
+  stroke:
+    rgba(121, 191, 255, 0.16);
+}
+
+
+/* Verification */
+
+.diagram-verification-ring {
+  stroke:
+    rgba(121, 191, 255, 0.22) !important;
+
+  stroke-dasharray: 4 5;
+}
+
+.diagram-verification-ring.inner {
+  stroke:
+    rgba(121, 191, 255, 0.12) !important;
+}
+
+.diagram-verification-points circle {
+  fill: var(--accent);
+
+  stroke: none !important;
+
+  filter:
+    drop-shadow(
+      0 0 4px rgba(121, 191, 255, 0.65)
+    );
+}
+
+.diagram-sensor-rays line {
+  stroke:
+    rgba(121, 191, 255, 0.3);
+}
+
+
+/* Digital Mission Lab */
+
+.diagram-sim-trajectory {
+  stroke:
+    rgba(121, 191, 255, 0.45) !important;
+
+  stroke-dasharray: 7 5;
+}
+
+.diagram-data-layers line {
+  stroke:
+    rgba(121, 191, 255, 0.25);
+}
+
+
+/* Mission integration */
+
+.diagram-integration-bus {
+  stroke:
+    rgba(121, 191, 255, 0.72) !important;
+}
+
+.diagram-integration-links line {
+  stroke:
+    rgba(121, 191, 255, 0.3);
+}
+
+
+/* ============================================================
+   PRODUCT VISUAL MOTION
+   ============================================================ */
+
+.product-card:hover .diagram-net {
+  animation:
+    productNetPulse
+    3.2s
+    ease-in-out
+    infinite;
+}
+
+.product-card:hover .diagram-network-lines {
+  animation:
+    productNetworkPulse
+    2.6s
+    ease-in-out
+    infinite;
+}
+
+.product-card:hover .diagram-range-gates {
+  animation:
+    productRangePulse
+    2.8s
+    ease-in-out
+    infinite;
+}
+
+.product-card:hover .diagram-verification-points {
+  animation:
+    productVerificationPulse
+    2.4s
+    ease-in-out
+    infinite;
+}
+
+.product-card:hover .diagram-sim-sat {
+  animation:
+    productSimFloat
+    3.4s
+    ease-in-out
+    infinite;
+}
+
+.product-card:hover .diagram-integration-modules {
+  animation:
+    productIntegrationPulse
+    2.8s
+    ease-in-out
+    infinite;
+}
+
+
+@keyframes productNetPulse {
+  0%,
+  100% {
+    opacity: 0.65;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes productNetworkPulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes productRangePulse {
+  0%,
+  100% {
+    opacity: 0.28;
+  }
+
+  50% {
+    opacity: 0.75;
+  }
+}
+
+@keyframes productVerificationPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes productSimFloat {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform:
+      translate3d(3px, -4px, 0);
+  }
+}
+
+@keyframes productIntegrationPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+
+/* Touch devices should retain visual emphasis */
+
+@media (hover: none), (pointer: coarse) {
+  .product-engineering-visual path,
+  .product-engineering-visual line,
+  .product-engineering-visual rect,
+  .product-engineering-visual ellipse {
+    stroke:
+      rgba(121, 191, 255, 0.62);
+  }
+
+  .diagram-net,
+  .diagram-network-lines,
+  .diagram-range-gates,
+  .diagram-verification-points,
+  .diagram-integration-modules {
+    opacity: 0.85;
+  }
+}

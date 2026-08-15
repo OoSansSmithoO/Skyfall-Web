@@ -1,0 +1,416 @@
+/* ============================================================
+   SKYFALL / HEADER + MOBILE NAVIGATION
+   ============================================================ */
+
+.site-header-shell {
+  position: relative;
+  z-index: 100;
+
+  width: 100%;
+}
+
+.site-header {
+  width: min(calc(100% - var(--page-gutter)), var(--max-width));
+  height: 88px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 40px;
+
+  border-bottom: 1px solid var(--line);
+}
+
+
+/* ============================================================
+   BRAND
+   ============================================================ */
+
+.brand {
+  position: relative;
+  z-index: 103;
+
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+}
+
+
+/* ============================================================
+   DESKTOP NAVIGATION
+   ============================================================ */
+
+.site-nav {
+  display: flex;
+  justify-content: center;
+  gap: 34px;
+}
+
+.site-nav a {
+  position: relative;
+
+  color: #9daebc;
+
+  font-size: 0.78rem;
+  font-weight: 500;
+
+  letter-spacing: 0.03em;
+
+  transition:
+    color 180ms ease;
+}
+
+.site-nav a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: -11px;
+
+  height: 1px;
+
+  background: var(--accent);
+
+  transform: scaleX(0);
+  transform-origin: center;
+
+  transition:
+    transform 220ms var(--ease-standard);
+}
+
+.site-nav a:hover {
+  color: var(--text);
+}
+
+.site-nav a:hover::after {
+  transform: scaleX(1);
+}
+
+
+/* ============================================================
+   HEADER ACTIONS
+   ============================================================ */
+
+.header-actions {
+  position: relative;
+  z-index: 103;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-cta {
+  padding: 11px 18px;
+
+  border: 1px solid rgba(121, 191, 255, 0.2);
+  border-radius: 999px;
+
+  color: #d7e4ed;
+
+  background:
+    rgba(121, 191, 255, 0.018);
+
+  font-size: 0.76rem;
+  font-weight: 700;
+
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.header-cta:hover {
+  color: var(--accent);
+
+  background:
+    rgba(121, 191, 255, 0.055);
+
+  border-color:
+    rgba(121, 191, 255, 0.42);
+
+  transform: translateY(-1px);
+}
+
+
+/* ============================================================
+   MOBILE MENU BUTTON
+   ============================================================ */
+
+.mobile-menu-button {
+  position: relative;
+
+  width: 42px;
+  height: 42px;
+
+  display: none;
+  place-items: center;
+
+  padding: 0;
+
+  border:
+    1px solid rgba(121, 191, 255, 0.2);
+
+  border-radius: 50%;
+
+  color: var(--text);
+
+  background:
+    rgba(5, 7, 10, 0.8);
+
+  cursor: pointer;
+}
+
+.mobile-menu-button span {
+  position: absolute;
+
+  width: 15px;
+  height: 1px;
+
+  background: currentColor;
+
+  transition:
+    transform 260ms var(--ease-standard),
+    top 260ms var(--ease-standard);
+}
+
+.mobile-menu-button span:first-child {
+  top: 17px;
+}
+
+.mobile-menu-button span:last-child {
+  top: 23px;
+}
+
+.mobile-menu-button.is-open span:first-child {
+  top: 20px;
+
+  transform: rotate(45deg);
+}
+
+.mobile-menu-button.is-open span:last-child {
+  top: 20px;
+
+  transform: rotate(-45deg);
+}
+
+
+/* ============================================================
+   MOBILE NAVIGATION PANEL
+   ============================================================ */
+
+.mobile-navigation {
+  position: fixed;
+  z-index: 99;
+
+  inset: 0;
+
+  padding:
+    110px
+    max(24px, calc((100vw - var(--max-width)) / 2))
+    36px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background:
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(121, 191, 255, 0.08),
+      transparent 34%
+    ),
+    rgba(5, 7, 10, 0.985);
+
+  backdrop-filter: blur(18px);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform:
+    translate3d(0, -14px, 0);
+
+  transition:
+    opacity 260ms ease,
+    visibility 260ms ease,
+    transform 300ms var(--ease-standard);
+}
+
+.mobile-navigation.is-open {
+  opacity: 1;
+  visibility: visible;
+
+  transform:
+    translate3d(0, 0, 0);
+}
+
+.mobile-navigation nav {
+  width: 100%;
+
+  border-top:
+    1px solid var(--line);
+}
+
+.mobile-navigation nav a {
+  min-height: 82px;
+
+  display: grid;
+  grid-template-columns: 46px 1fr auto;
+  align-items: center;
+  gap: 18px;
+
+  border-bottom:
+    1px solid var(--line);
+
+  color: #d8e2e9;
+}
+
+.mobile-navigation nav a > span:first-child {
+  color: var(--accent);
+
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+}
+
+.mobile-navigation nav a > strong {
+  font-size:
+    clamp(1.35rem, 6vw, 2rem);
+
+  font-weight: 500;
+
+  letter-spacing: -0.025em;
+}
+
+.mobile-navigation nav a > span:last-child {
+  color: #7890a1;
+
+  font-size: 1rem;
+
+  transition:
+    color 180ms ease,
+    transform 220ms var(--ease-standard);
+}
+
+.mobile-navigation nav a:hover > span:last-child {
+  color: var(--accent);
+
+  transform:
+    translateX(4px);
+}
+
+.mobile-contact-link strong {
+  color: var(--accent);
+}
+
+
+/* ============================================================
+   MOBILE NAV META
+   ============================================================ */
+
+.mobile-navigation-meta {
+  padding-top: 28px;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+
+  color: #6e8595;
+
+  font-size: 0.46rem;
+  letter-spacing: 0.12em;
+}
+
+
+/* ============================================================
+   TABLET / MOBILE
+   ============================================================ */
+
+@media (max-width: 960px) {
+  .site-header {
+    height: 76px;
+
+    grid-template-columns:
+      1fr auto;
+
+    gap: 20px;
+  }
+
+  .site-nav {
+    display: none;
+  }
+
+  .mobile-menu-button {
+    display: grid;
+  }
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 640px) {
+  .site-header {
+    height: 68px;
+  }
+
+  .brand {
+    font-size: 0.82rem;
+  }
+
+  /*
+     Contact is already available inside the opened navigation.
+     Removing it here keeps the mobile header compact.
+  */
+
+  .header-cta {
+    display: none;
+  }
+
+  .mobile-menu-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .mobile-navigation {
+    padding:
+      92px
+      20px
+      28px;
+  }
+
+  .mobile-navigation nav a {
+    min-height: 74px;
+  }
+}
+
+
+/* ============================================================
+   TOUCH
+   ============================================================ */
+
+@media (hover: none), (pointer: coarse) {
+  .header-cta:hover {
+    transform: none;
+  }
+
+  .mobile-navigation nav a > span:last-child {
+    color: #8aa0af;
+  }
+}
+
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-navigation,
+  .mobile-menu-button span {
+    transition: none;
+  }
+}

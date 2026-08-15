@@ -1,0 +1,113 @@
+/* ============================================================
+   SKYFALL / CONTACT + FOOTER
+   ============================================================ */
+
+.contact-section {
+  width: min(calc(100% - var(--page-gutter)), var(--max-width));
+  margin: 0 auto;
+  padding: 0 0 40px;
+}
+
+.contact-panel {
+  min-height: 430px;
+  padding: 70px;
+
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: end;
+  gap: 80px;
+
+  border: 1px solid var(--line);
+
+  background:
+    radial-gradient(
+      circle at 75% 35%,
+      rgba(121, 191, 255, 0.09),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(121, 191, 255, 0.025),
+      transparent 55%
+    ),
+    #071019;
+}
+
+.contact-copy h2 {
+  margin: 0;
+
+  font-size: clamp(3.5rem, 6vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+}
+
+.contact-copy h2 span {
+  display: block;
+  margin-top: 12px;
+
+  color: #9fb4c4;
+
+  font-size: 0.42em;
+  font-weight: 400;
+}
+
+.contact-copy > p:last-child {
+  max-width: 680px;
+  margin: 30px 0 0;
+
+  color: #b4c2cc;
+
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.contact-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+}
+
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.site-footer {
+  min-height: 110px;
+  padding: 30px 0;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 40px;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.footer-brand {
+  color: var(--text);
+
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+}
+
+.footer-meta {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+
+  color: #839baa;
+
+  font-size: 0.48rem;
+  letter-spacing: 0.12em;
+}
+
+.footer-copy {
+  color: #718998;
+
+  font-size: 0.48rem;
+  letter-spacing: 0.1em;
+}

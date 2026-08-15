@@ -1,0 +1,432 @@
+/* ============================================================
+   SKYFALL / CAPABILITIES
+   PROCUREMENT + ENGINEERING MATRIX
+   ============================================================ */
+
+.capabilities-section {
+  width: min(calc(100% - var(--page-gutter)), var(--max-width));
+  margin: 0 auto;
+  padding: 40px 0 150px;
+}
+
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.capabilities-header {
+  padding: 70px 0;
+
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 90px;
+}
+
+.capabilities-header h2 {
+  margin: 0;
+
+  font-size: clamp(3.5rem, 6vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+}
+
+.capabilities-header h2 span {
+  display: block;
+  margin-top: 12px;
+
+  color: var(--muted);
+
+  font-size: 0.42em;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+
+.capabilities-header-copy {
+  align-self: end;
+}
+
+.capabilities-header-copy p {
+  margin: 0 0 28px;
+
+  color: var(--muted);
+
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+
+/* ============================================================
+   COMMERCIAL MODE LINE
+   ============================================================ */
+
+.capabilities-commercial-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.capabilities-commercial-line span {
+  padding: 7px 9px;
+
+  border: 1px solid var(--line);
+
+  color: var(--muted-dark);
+
+  font-size: 0.5rem;
+  letter-spacing: 0.12em;
+}
+
+
+/* ============================================================
+   MATRIX
+   ============================================================ */
+
+.capability-matrix {
+  border: 1px solid var(--line);
+}
+
+.capability-matrix-head {
+  min-height: 54px;
+  padding: 0 26px;
+
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr 0.45fr;
+  align-items: center;
+  gap: 30px;
+
+  border-bottom: 1px solid rgba(121, 191, 255, 0.16);
+
+  color: #8fa9be;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(121, 191, 255, 0.025),
+      transparent 70%
+    );
+
+  font-size: 0.52rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+}
+
+
+/* ============================================================
+   CAPABILITY ROW
+   ============================================================ */
+
+.capability-row {
+  position: relative;
+
+  min-height: 205px;
+  padding: 30px 26px;
+
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr 0.45fr;
+  gap: 30px;
+
+  border-bottom: 1px solid var(--line);
+
+  background: var(--bg);
+
+  transition:
+    background 240ms ease,
+    box-shadow 240ms ease;
+}
+
+.capability-row:last-child {
+  border-bottom: 0;
+}
+
+.capability-row::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 2px;
+
+  background: var(--accent);
+
+  opacity: 0;
+
+  transform: scaleY(0.45);
+  transform-origin: center;
+
+  transition:
+    opacity 240ms ease,
+    transform 300ms var(--ease-standard);
+}
+
+.capability-row:hover {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(121, 191, 255, 0.025),
+      transparent 34%
+    );
+
+  box-shadow:
+    inset 0 0 40px rgba(121, 191, 255, 0.018);
+}
+
+.capability-row:hover::before {
+  opacity: 0.75;
+  transform: scaleY(1);
+}
+
+
+/* ============================================================
+   TITLE COLUMN
+   ============================================================ */
+
+.capability-title {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 20px;
+}
+
+.capability-number {
+  color: var(--accent);
+
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+}
+
+.capability-title h3 {
+  margin: 0 0 14px;
+
+  font-size: 1.35rem;
+}
+
+.capability-title p {
+  max-width: 520px;
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+
+
+/* ============================================================
+   DELIVERABLES
+   ============================================================ */
+
+.capability-deliverables {
+  display: grid;
+  align-content: center;
+  gap: 10px;
+}
+
+.capability-deliverables span {
+  position: relative;
+
+  padding-left: 18px;
+
+  color: var(--text);
+
+  font-size: 0.67rem;
+  letter-spacing: 0.08em;
+}
+
+.capability-deliverables span::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 50%;
+
+  width: 7px;
+  height: 1px;
+
+  background: var(--accent);
+
+  transform: translateY(-50%);
+
+  opacity: 0.6;
+}
+
+
+/* ============================================================
+   COMMERCIAL PATH
+   ============================================================ */
+
+.capability-commercial {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.capability-commercial span {
+  padding: 6px 8px;
+
+  border: 1px solid var(--line);
+
+  color: var(--muted-dark);
+
+  font-size: 0.47rem;
+  letter-spacing: 0.1em;
+
+  transition:
+    color 200ms ease,
+    border-color 200ms ease,
+    background 200ms ease;
+}
+
+.capability-row:hover .capability-commercial span {
+  color: var(--accent);
+
+  border-color:
+    rgba(121, 191, 255, 0.22);
+
+  background:
+    rgba(121, 191, 255, 0.025);
+}
+
+.capabilities-commercial-line span {
+  padding: 7px 9px;
+
+  border: 1px solid rgba(121, 191, 255, 0.18);
+
+  color: #aebdca;
+
+  background: rgba(121, 191, 255, 0.025);
+
+  font-size: 0.5rem;
+  letter-spacing: 0.12em;
+}
+
+.capability-row {
+  position: relative;
+
+  min-height: 205px;
+  padding: 30px 26px;
+
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr 0.45fr;
+  gap: 30px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(121, 191, 255, 0.012),
+      transparent 40%
+    ),
+    var(--bg);
+
+  transition:
+    background 240ms ease,
+    box-shadow 240ms ease;
+}
+
+.capability-title p {
+  max-width: 520px;
+  margin: 0;
+
+  color: #a8b7c4;
+
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+
+.capability-deliverables span {
+  position: relative;
+
+  padding-left: 18px;
+
+  color: #d5e0e8;
+
+  font-size: 0.67rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.capability-deliverables span::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 50%;
+
+  width: 7px;
+  height: 1px;
+
+  background: var(--accent);
+
+  transform: translateY(-50%);
+
+  opacity: 0.8;
+}
+
+.capability-commercial span {
+  padding: 6px 8px;
+
+  border: 1px solid rgba(121, 191, 255, 0.16);
+
+  color: #9fb5c7;
+
+  background: rgba(121, 191, 255, 0.018);
+
+  font-size: 0.47rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+
+  transition:
+    color 200ms ease,
+    border-color 200ms ease,
+    background 200ms ease;
+}
+
+.capability-row:hover .capability-commercial span {
+  color: var(--accent);
+
+  border-color: rgba(121, 191, 255, 0.38);
+
+  background: rgba(121, 191, 255, 0.06);
+}
+
+@media (hover: none), (pointer: coarse) {
+  .capability-row {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(121, 191, 255, 0.025),
+        transparent 45%
+      ),
+      var(--bg);
+  }
+
+  .capability-row::before {
+    opacity: 0.4;
+    transform: scaleY(0.7);
+  }
+
+  .capability-title p {
+    color: #b3c1cc;
+  }
+
+  .capability-commercial span {
+    color: #a9bfd0;
+
+    border-color:
+      rgba(121, 191, 255, 0.22);
+
+    background:
+      rgba(121, 191, 255, 0.03);
+  }
+
+  .capability-deliverables span::before {
+    opacity: 0.9;
+  }
+}

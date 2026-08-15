@@ -1,0 +1,929 @@
+/* ============================================================
+   SKYFALL / MISSION APPLICATIONS
+   COMMERCIAL + OPERATIONAL USE CASES
+   ============================================================ */
+
+
+/* ============================================================
+   01. MISSION ACCENT PALETTE
+   ============================================================ */
+
+:root {
+  --mission-blue: #79bfff;
+  --mission-cyan: #6fe7e1;
+  --mission-violet: #9f8cff;
+  --mission-amber: #f2b563;
+  --mission-green: #72d6a0;
+  --mission-red: #e47a7a;
+}
+
+
+/* ============================================================
+   02. SECTION
+   ============================================================ */
+
+.missions-section {
+  position: relative;
+  z-index: 0;
+
+  width: min(calc(100% - var(--page-gutter)), var(--max-width));
+  margin: 0 auto;
+  padding: 40px 0 150px;
+
+  isolation: isolate;
+}
+
+
+/*
+   Slightly changes the environmental tone from the sections above
+   without abandoning the dark Skyfall interface.
+*/
+
+.missions-section::before {
+  content: "";
+
+  position: absolute;
+  z-index: -2;
+
+  inset: 0 -8vw;
+
+  background:
+    radial-gradient(
+      circle at 18% 24%,
+      rgba(111, 231, 225, 0.035),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 82% 65%,
+      rgba(159, 140, 255, 0.03),
+      transparent 34%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.012),
+      rgba(255, 255, 255, 0)
+    );
+
+  pointer-events: none;
+}
+
+
+/* Very faint horizon separator */
+
+.missions-section::after {
+  content: "";
+
+  position: absolute;
+  z-index: -1;
+
+  left: 50%;
+  top: 12%;
+
+  width: 80%;
+  height: 1px;
+
+  transform: translateX(-50%);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(121, 191, 255, 0.08),
+      transparent
+    );
+
+  pointer-events: none;
+}
+
+
+/* ============================================================
+   03. HEADER
+   ============================================================ */
+
+.missions-header {
+  padding: 70px 0;
+
+  display: grid;
+  grid-template-columns: 1.35fr 0.65fr;
+  gap: 80px;
+}
+
+.missions-header h2 {
+  margin: 0;
+
+  font-size: clamp(3.5rem, 6vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+}
+
+.missions-header h2 span {
+  display: block;
+  margin-top: 12px;
+
+  color: var(--muted);
+
+  font-size: 0.42em;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+
+.missions-intro {
+  align-self: end;
+
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+
+/* ============================================================
+   04. MISSION GRID
+   ============================================================ */
+
+.missions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+
+  border: 1px solid var(--line);
+
+  background: var(--line);
+}
+
+
+/* ============================================================
+   05. MISSION CARD
+   ============================================================ */
+
+.mission-card {
+  --mission-accent: var(--accent);
+
+  position: relative;
+
+  min-height: 430px;
+  padding: 28px;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.008),
+      transparent 42%
+    ),
+    var(--bg);
+
+  transition:
+    background 280ms ease,
+    transform 280ms var(--ease-standard),
+    box-shadow 280ms ease,
+    border-color 280ms ease;
+}
+
+
+/* ============================================================
+   06. PER-CARD COLOR SYSTEM
+   ============================================================ */
+
+.mission-card:nth-child(1) {
+  --mission-accent: var(--mission-blue);
+}
+
+.mission-card:nth-child(2) {
+  --mission-accent: var(--mission-cyan);
+}
+
+.mission-card:nth-child(3) {
+  --mission-accent: var(--mission-violet);
+}
+
+.mission-card:nth-child(4) {
+  --mission-accent: var(--mission-amber);
+}
+
+.mission-card:nth-child(5) {
+  --mission-accent: var(--mission-green);
+}
+
+.mission-card:nth-child(6) {
+  --mission-accent: var(--mission-red);
+}
+
+
+/* ============================================================
+   07. CARD ACCENT LINE
+   ============================================================ */
+
+.mission-card::before {
+  content: "";
+
+  position: absolute;
+  z-index: 3;
+
+  left: 0;
+  right: 0;
+  top: 0;
+
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--mission-accent),
+      transparent
+    );
+
+  opacity: 0.18;
+
+  transform: scaleX(0.42);
+  transform-origin: center;
+
+  transition:
+    opacity 260ms ease,
+    transform 350ms var(--ease-standard);
+}
+
+.mission-card:hover::before {
+  opacity: 0.72;
+  transform: scaleX(1);
+}
+
+
+/* ============================================================
+   08. CARD AMBIENT GLOW
+   ============================================================ */
+
+.mission-card::after {
+  content: "";
+
+  position: absolute;
+  z-index: 0;
+
+  width: 240px;
+  height: 240px;
+
+  left: 50%;
+  top: 38%;
+
+  transform:
+    translate(-50%, -50%)
+    scale(0.7);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      color-mix(
+        in srgb,
+        var(--mission-accent) 9%,
+        transparent
+      ),
+      transparent 68%
+    );
+
+  opacity: 0;
+
+  transition:
+    opacity 350ms ease,
+    transform 500ms var(--ease-standard);
+
+  pointer-events: none;
+}
+
+.mission-card:hover::after {
+  opacity: 1;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1.12);
+}
+
+
+/* ============================================================
+   09. CARD HOVER STATE
+   ============================================================ */
+
+.mission-card:hover {
+  z-index: 2;
+
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(
+        in srgb,
+        var(--mission-accent) 3.5%,
+        var(--bg)
+      ),
+      var(--bg) 65%
+    );
+
+  box-shadow:
+    inset 0 0 52px
+      color-mix(
+        in srgb,
+        var(--mission-accent) 4.5%,
+        transparent
+      ),
+    0 0 28px rgba(0, 0, 0, 0.18);
+
+  transform:
+    translateY(-2px);
+}
+
+
+/* ============================================================
+   10. CARD META
+   ============================================================ */
+
+.mission-card-top {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  color: var(--muted-dark);
+
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+}
+
+.mission-card-top > span {
+  color: var(--mission-accent);
+
+  font-weight: 700;
+
+  text-shadow:
+    0 0 8px
+    color-mix(
+      in srgb,
+      var(--mission-accent) 26%,
+      transparent
+    );
+}
+
+.mission-card-top small {
+  font-size: inherit;
+
+  transition: color 220ms ease;
+}
+
+.mission-card:hover .mission-card-top small {
+  color:
+    color-mix(
+      in srgb,
+      var(--mission-accent) 52%,
+      var(--muted)
+    );
+}
+
+
+/* ============================================================
+   11. VISUAL FIELD
+   ============================================================ */
+
+.mission-card-visual {
+  position: relative;
+  z-index: 2;
+
+  min-height: 185px;
+
+  display: grid;
+  place-items: center;
+}
+
+.mission-card-visual::before {
+  content: "";
+
+  position: absolute;
+
+  width: 135px;
+  height: 135px;
+
+  border:
+    1px solid
+    color-mix(
+      in srgb,
+      var(--mission-accent) 12%,
+      transparent
+    );
+
+  border-radius: 50%;
+
+  transition:
+    border-color 300ms ease,
+    transform 450ms var(--ease-standard);
+}
+
+.mission-card-visual::after {
+  content: "";
+
+  position: absolute;
+
+  width: 86px;
+  height: 86px;
+
+  border:
+    1px solid
+    color-mix(
+      in srgb,
+      var(--mission-accent) 7%,
+      transparent
+    );
+
+  border-radius: 50%;
+
+  transition:
+    border-color 300ms ease,
+    transform 450ms var(--ease-standard);
+}
+
+.mission-card:hover .mission-card-visual::before {
+  border-color:
+    color-mix(
+      in srgb,
+      var(--mission-accent) 24%,
+      transparent
+    );
+
+  transform: scale(1.05);
+}
+
+.mission-card:hover .mission-card-visual::after {
+  border-color:
+    color-mix(
+      in srgb,
+      var(--mission-accent) 16%,
+      transparent
+    );
+
+  transform: scale(0.94);
+}
+
+
+/* ============================================================
+   12. SHARED MISSION ICON
+   ============================================================ */
+
+.mission-icon {
+  position: relative;
+  z-index: 3;
+
+  width: 96px;
+  height: 96px;
+
+  display: grid;
+  place-items: center;
+
+  filter:
+    drop-shadow(
+      0 0 7px
+      color-mix(
+        in srgb,
+        var(--mission-accent) 12%,
+        transparent
+      )
+    );
+
+  transition:
+    filter 250ms ease;
+}
+
+.mission-icon span {
+  position: absolute;
+
+  display: block;
+}
+
+.mission-card:hover .mission-icon {
+  filter:
+    drop-shadow(
+      0 0 10px
+      color-mix(
+        in srgb,
+        var(--mission-accent) 28%,
+        transparent
+      )
+    );
+
+  animation:
+    missionIconFloat
+    3.4s
+    ease-in-out
+    infinite;
+}
+
+
+/* ============================================================
+   13. DEBRIS ICON
+   ============================================================ */
+
+.mission-icon-debris span:nth-child(1) {
+  width: 48px;
+  height: 48px;
+
+  border:
+    1px solid
+    color-mix(
+      in srgb,
+      var(--mission-accent) 62%,
+      transparent
+    );
+
+  transform: rotate(31deg);
+}
+
+.mission-icon-debris span:nth-child(2) {
+  width: 72px;
+  height: 72px;
+
+  border:
+    1px dashed
+    color-mix(
+      in srgb,
+      var(--mission-accent) 24%,
+      transparent
+    );
+
+  border-radius: 50%;
+}
+
+.mission-icon-debris span:nth-child(3) {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: var(--mission-accent);
+
+  box-shadow:
+    0 0 12px
+    color-mix(
+      in srgb,
+      var(--mission-accent) 60%,
+      transparent
+    );
+}
+
+
+/* ============================================================
+   14. INSPECTION ICON
+   ============================================================ */
+
+.mission-icon-inspection span:nth-child(1) {
+  width: 54px;
+  height: 54px;
+
+  border:
+    1px solid
+    color-mix(
+      in srgb,
+      var(--mission-accent) 58%,
+      transparent
+    );
+
+  transform: rotate(45deg);
+}
+
+.mission-icon-inspection span:nth-child(2) {
+  width: 84px;
+  height: 36px;
+
+  border:
+    1px solid
+    color-mix(
+      in srgb,
+      var(--mission-accent) 20%,
+      transparent
+    );
+
+  border-radius: 50%;
+}
+
+.mission-icon-inspection span:nth-child(3) {
+  width: 8px;
+  height: 8px;
+
+  border:
+    1px solid var(--mission-accent);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 10px
+    color-mix(
+      in srgb,
+      var(--mission-accent) 40%,
+      transparent
+    );
+}
+
+
+/* ============================================================
+   15. SERVICING ICON
+   ============================================================ */
+
+.mission-icon-servicing span:nth-child(1) {
+  width: 52px;
+  height: 34px;
+
+  border:
+    1px solid
+    color-mix(
+      in srgb,
+      var(--mission-accent) 58%,
+      transparent
+    );
+}
+
+.mission-icon-servicing span:nth-child(2) {
+  width: 1px;
+  height: 65px;
+
+  background:
+    color-mix(
+      in srgb,
+      var(--mission-accent) 35%,
+      transparent
+    );
+
+  transform: rotate(45deg);
+}
+
+.mission-icon-servicing span:nth-child(3) {
+  width: 20px;
+  height: 20px;
+
+  border:
+    1px solid
+    color-mix(
+      in srgb,
+      var(--mission-accent) 62%,
+      transparent
+    );
+
+  border-radius: 50%;
+
+  transform:
+    translate(24px, -24px);
+}
+
+
+/* ============================================================
+   16. MATERIAL RETRIEVAL ICON
+   ============================================================ */
+
+.mission-icon-material span:nth-child(1) {
+  width: 45px;
+  height: 45px;
+
+  border:
+    1px solid
+    color-mix(
+      in srgb,
+      var(--mission-accent) 62%,
+      transparent
+    );
+
+  transform: rotate(24deg);
+}
+
+.mission-icon-material span:nth-child(2) {
+  width: 70px;
+  height: 70px;
+
+  border:
+    1px dashed
+    color-mix(
+      in srgb,
+      var(--mission-accent) 20%,
+      transparent
+    );
+
+  transform: rotate(-18deg);
+}
+
+.mission-icon-material span:nth-child(3) {
+  width: 14px;
+  height: 14px;
+
+  border:
+    1px solid var(--mission-accent);
+
+  transform: rotate(45deg);
+
+  box-shadow:
+    0 0 10px
+    color-mix(
+      in srgb,
+      var(--mission-accent) 35%,
+      transparent
+    );
+}
+
+
+/* ============================================================
+   17. RESEARCH ICON
+   ============================================================ */
+
+.mission-icon-research span:nth-child(1) {
+  width: 42px;
+  height: 56px;
+
+  border:
+    1px solid
+    color-mix(
+      in srgb,
+      var(--mission-accent) 58%,
+      transparent
+    );
+}
+
+.mission-icon-research span:nth-child(2) {
+  width: 70px;
+  height: 1px;
+
+  background:
+    color-mix(
+      in srgb,
+      var(--mission-accent) 32%,
+      transparent
+    );
+}
+
+.mission-icon-research span:nth-child(3) {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: var(--mission-accent);
+
+  transform: translate(0, -24px);
+
+  box-shadow:
+    0 0 12px
+    color-mix(
+      in srgb,
+      var(--mission-accent) 48%,
+      transparent
+    );
+}
+
+
+/* ============================================================
+   18. LOGISTICS ICON
+   ============================================================ */
+
+.mission-icon-logistics span:nth-child(1),
+.mission-icon-logistics span:nth-child(2),
+.mission-icon-logistics span:nth-child(3) {
+  width: 24px;
+  height: 24px;
+
+  border:
+    1px solid
+    color-mix(
+      in srgb,
+      var(--mission-accent) 58%,
+      transparent
+    );
+
+  transform: rotate(45deg);
+}
+
+.mission-icon-logistics span:nth-child(1) {
+  transform:
+    translate(-30px, 10px)
+    rotate(45deg);
+}
+
+.mission-icon-logistics span:nth-child(2) {
+  transform:
+    translate(0, -18px)
+    rotate(45deg);
+}
+
+.mission-icon-logistics span:nth-child(3) {
+  transform:
+    translate(30px, 10px)
+    rotate(45deg);
+}
+
+
+/* ============================================================
+   19. CARD BODY
+   ============================================================ */
+
+.mission-card-body {
+  position: relative;
+  z-index: 2;
+
+  margin-top: auto;
+}
+
+.mission-card-body h3 {
+  margin: 0 0 14px;
+
+  font-size: 1.4rem;
+
+  transition:
+    color 220ms ease;
+}
+
+.mission-card:hover .mission-card-body h3 {
+  color:
+    color-mix(
+      in srgb,
+      var(--mission-accent) 34%,
+      var(--text)
+    );
+}
+
+.mission-card-body p {
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 0.84rem;
+  line-height: 1.65;
+}
+
+
+/* ============================================================
+   20. CARD FOOTER
+   ============================================================ */
+
+.mission-card-footer {
+  position: relative;
+  z-index: 2;
+
+  margin-top: 30px;
+  padding-top: 18px;
+
+  display: flex;
+  justify-content: space-between;
+
+  border-top:
+    1px solid var(--line);
+
+  color: var(--muted-dark);
+
+  font-size: 0.5rem;
+  letter-spacing: 0.12em;
+
+  transition:
+    color 220ms ease,
+    border-color 220ms ease;
+}
+
+.mission-card:hover .mission-card-footer {
+  color: var(--mission-accent);
+
+  border-color:
+    color-mix(
+      in srgb,
+      var(--mission-accent) 18%,
+      var(--line)
+    );
+}
+
+
+/* Footer arrow motion */
+
+.mission-card-footer span:last-child {
+  transition:
+    transform 260ms var(--ease-standard);
+}
+
+.mission-card:hover .mission-card-footer span:last-child {
+  transform: translateX(4px);
+}
+
+
+/* ============================================================
+   21. MISSION ICON MOTION
+   ============================================================ */
+
+@keyframes missionIconFloat {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform:
+      translate3d(0, -5px, 0);
+  }
+}

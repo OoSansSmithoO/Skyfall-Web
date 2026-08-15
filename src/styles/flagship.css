@@ -1,0 +1,1237 @@
+/* ============================================================
+   SKYFALL / FLAGSHIP SYSTEM
+   N-SERIES CAPTURE PLATFORM
+   ============================================================ */
+
+
+/* ============================================================
+   01. SHARED SECTION LABEL
+   ============================================================ */
+
+.section-label {
+  padding-bottom: 22px;
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  border-bottom: 1px solid var(--line);
+
+  color: var(--muted);
+
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+}
+
+.section-label span {
+  color: var(--accent);
+}
+
+.section-label p {
+  margin: 0;
+}
+
+
+/* ============================================================
+   02. FLAGSHIP SECTION
+   ============================================================ */
+
+.flagship {
+  width: min(calc(100% - var(--page-gutter)), var(--max-width));
+  margin: 0 auto;
+  padding: 150px 0;
+}
+
+
+/* ============================================================
+   03. FLAGSHIP HEADER
+   ============================================================ */
+
+.flagship-header {
+  padding: 70px 0;
+
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  gap: 80px;
+}
+
+.flagship-header h2 {
+  margin: 0;
+
+  font-size: clamp(3.5rem, 6vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+}
+
+.flagship-header h2 span {
+  display: block;
+
+  margin-top: 12px;
+
+  color: var(--muted);
+
+  font-size: 0.36em;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+
+.flagship-intro {
+  align-self: end;
+
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+
+/* ============================================================
+   04. FLAGSHIP GRID
+   ============================================================ */
+
+.flagship-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 0.5fr;
+  gap: 1px;
+
+  border: 1px solid var(--line);
+
+  background: var(--line);
+}
+
+.product-main,
+.flagship-specs {
+  background: var(--bg);
+}
+
+.product-main {
+  min-height: 620px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* ============================================================
+   05. PRODUCT META
+   ============================================================ */
+
+.product-meta {
+  padding: 20px 24px;
+
+  display: flex;
+  justify-content: space-between;
+
+  border-bottom: 1px solid var(--line);
+
+  color: var(--muted);
+
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+}
+
+
+/* ============================================================
+   06. CAPTURE VISUALIZATION
+   ============================================================ */
+
+.capture-visual {
+  position: relative;
+
+  flex: 1;
+  min-height: 470px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(67, 137, 206, 0.12),
+      transparent 45%
+    );
+}
+
+
+/* ============================================================
+   07. SEARCH / ACQUISITION
+   ============================================================ */
+
+.acquisition-sweep {
+  position: absolute;
+  z-index: 7;
+
+  left: 14%;
+  top: 25%;
+
+  width: 2px;
+  height: 50%;
+
+  opacity: 0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(121, 191, 255, 0.8),
+      transparent
+    );
+
+  box-shadow:
+    0 0 18px rgba(121, 191, 255, 0.25);
+
+  pointer-events: none;
+}
+
+
+/* ============================================================
+   08. CAPTURE VEHICLE
+   ============================================================ */
+
+.capture-vehicle {
+  position: absolute;
+  z-index: 6;
+
+  left: 12%;
+  top: 46%;
+
+  padding: 16px 20px;
+
+  border: 1px solid rgba(121, 191, 255, 0.4);
+
+  color: var(--accent);
+
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+
+  opacity: 0;
+}
+
+.capture-vehicle span {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* ============================================================
+   09. LAUNCHER
+   ============================================================ */
+
+.launcher-port {
+  position: absolute;
+
+  right: -5px;
+  top: 50%;
+
+  width: 7px;
+  height: 16px;
+
+  transform: translateY(-50%);
+
+  background: var(--accent);
+
+  opacity: 0;
+
+  box-shadow:
+    0 0 8px var(--accent),
+    0 0 20px rgba(121, 191, 255, 0.55);
+}
+
+
+/* ============================================================
+   10. CAPTURE PROJECTILES
+   ============================================================ */
+
+.projectile {
+  position: absolute;
+  z-index: 8;
+
+  left: 19%;
+  top: 50%;
+
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: var(--accent);
+
+  opacity: 0;
+
+  box-shadow:
+    0 0 8px rgba(121, 191, 255, 0.9),
+    0 0 22px rgba(121, 191, 255, 0.5);
+}
+
+.projectile-top {
+  --projectile-y: -105px;
+}
+
+.projectile-bottom {
+  --projectile-y: 105px;
+}
+
+
+/* ============================================================
+   11. TETHER
+   ============================================================ */
+
+.capture-tether {
+  position: absolute;
+  z-index: 2;
+
+  left: 19%;
+  top: 50%;
+
+  width: 0;
+  height: 2px;
+
+  transform-origin: left center;
+
+  opacity: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(121, 191, 255, 0.9),
+      rgba(121, 191, 255, 0.28)
+    );
+
+  box-shadow:
+    0 0 8px rgba(121, 191, 255, 0.2);
+}
+
+.capture-tether::after {
+  content: "";
+
+  position: absolute;
+
+  right: 0;
+  top: -2px;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: var(--accent);
+}
+
+
+/* ============================================================
+   12. CAPTURE NET
+   ============================================================ */
+
+.capture-net {
+  position: absolute;
+  z-index: 4;
+
+  left: 30%;
+  right: 25%;
+  top: 28%;
+  bottom: 25%;
+
+  border-top: 1px solid rgba(121, 191, 255, 0.25);
+  border-bottom: 1px solid rgba(121, 191, 255, 0.25);
+
+  opacity: 0;
+
+  transform-origin: left center;
+
+  transform:
+    perspective(600px)
+    rotateY(-28deg)
+    translateX(-130px)
+    scaleX(0.02)
+    scaleY(0.08);
+}
+
+.capture-net::before,
+.capture-net::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    repeating-linear-gradient(
+      35deg,
+      transparent 0,
+      transparent 24px,
+      rgba(121, 191, 255, 0.13) 25px,
+      transparent 26px
+    );
+}
+
+.capture-net::after {
+  transform: scaleX(-1);
+}
+
+
+/* ============================================================
+   13. NET CORNER NODES
+   ============================================================ */
+
+.capture-net span {
+  position: absolute;
+  z-index: 3;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: var(--accent);
+
+  opacity: 0;
+
+  box-shadow:
+    0 0 16px rgba(121, 191, 255, 0.7);
+}
+
+.capture-net span:nth-child(1) {
+  left: 0;
+  top: 0;
+}
+
+.capture-net span:nth-child(2) {
+  right: 0;
+  top: 0;
+}
+
+.capture-net span:nth-child(3) {
+  left: 0;
+  bottom: 0;
+}
+
+.capture-net span:nth-child(4) {
+  right: 0;
+  bottom: 0;
+}
+
+
+/* ============================================================
+   14. TARGET
+   ============================================================ */
+
+.capture-target {
+  position: absolute;
+  z-index: 5;
+
+  right: 14%;
+  top: 42%;
+
+  width: 100px;
+  height: 100px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.22);
+
+  color: var(--muted);
+
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+
+  opacity: 0;
+
+  transform: rotate(24deg);
+}
+
+
+/* ============================================================
+   15. CAPTURE CONFIRMATION
+   ============================================================ */
+
+.capture-confirm {
+  position: absolute;
+  z-index: 10;
+
+  right: 24px;
+  bottom: 22px;
+
+  padding: 8px 12px;
+
+  border: 1px solid rgba(121, 191, 255, 0.25);
+
+  color: var(--accent);
+
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+
+  opacity: 0;
+
+  transform: translateY(8px);
+}
+
+
+/* ============================================================
+   16. PRODUCT ATTRIBUTES
+   ============================================================ */
+
+.product-footer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  border-top: 1px solid var(--line);
+}
+
+.product-footer div {
+  padding: 22px 24px;
+
+  border-right: 1px solid var(--line);
+}
+
+.product-footer div:last-child {
+  border-right: 0;
+}
+
+.product-footer small {
+  display: block;
+
+  margin-bottom: 9px;
+
+  color: var(--muted);
+
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+}
+
+.product-footer strong {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+}
+
+
+/* ============================================================
+   17. SPECIFICATION PANELS
+   ============================================================ */
+
+.flagship-specs {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.flagship-specs article {
+  position: relative;
+
+  padding: 34px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  border-bottom: 1px solid var(--line);
+
+  opacity: 0;
+
+  transform: translateX(20px);
+
+  transition:
+    opacity 600ms ease,
+    transform 600ms var(--ease-standard),
+    background 300ms ease;
+}
+
+.flagship-specs article:last-child {
+  border-bottom: 0;
+}
+
+.flagship-specs article::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 2px;
+
+  background: var(--accent);
+
+  transform: scaleY(0);
+  transform-origin: bottom;
+
+  transition: transform 300ms ease;
+}
+
+.flagship-specs article:hover {
+  background: rgba(121, 191, 255, 0.035);
+}
+
+.flagship-specs article:hover::before {
+  transform: scaleY(1);
+}
+
+.flagship-specs span {
+  margin-bottom: auto;
+
+  color: var(--accent);
+
+  font-size: 0.6rem;
+}
+
+.flagship-specs h3 {
+  margin: 40px 0 12px;
+
+  font-size: 1.1rem;
+
+  transition: color 200ms ease;
+}
+
+.flagship-specs article:hover h3 {
+  color: var(--accent-strong);
+}
+
+.flagship-specs p {
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+
+
+/* ============================================================
+   18. SCROLL-TRIGGERED MISSION SEQUENCE
+
+   0.0s   Section reveal
+   0.5s   Skyfall vehicle online
+   1.2s   Search begins
+   2.4s   Target detected
+   3.0s   Target lock
+   3.6s   Capture launcher fires
+   4.2s   Net expansion
+   5.0s   Target contact
+   5.8s   Tether load
+   6.3s   Recoil / damping
+   7.0s   Tow state
+   7.5s   Capture verified
+   ============================================================ */
+
+
+/* Section reveal */
+
+.flagship-header,
+.flagship-grid {
+  opacity: 0;
+
+  transform: translateY(28px);
+}
+
+.flagship.is-active .flagship-header {
+  animation:
+    sectionReveal
+    900ms
+    var(--ease-standard)
+    both;
+}
+
+.flagship.is-active .flagship-grid {
+  animation:
+    sectionReveal
+    900ms
+    var(--ease-standard)
+    250ms
+    both;
+}
+
+
+/* Vehicle entry → recoil → tow */
+
+.flagship.is-active .capture-vehicle {
+  animation:
+    vehicleEntry
+      900ms
+      var(--ease-standard)
+      500ms
+      both,
+
+    vehicleCaptureRecoil
+      1.8s
+      ease
+      5.8s
+      both,
+
+    skyfallTowState
+      8s
+      ease-in-out
+      7.3s
+      infinite;
+}
+
+
+/* Search */
+
+.flagship.is-active .acquisition-sweep {
+  animation:
+    acquisitionSweep
+    2.4s
+    ease-in-out
+    1.2s
+    both;
+}
+
+
+/* Target */
+
+.flagship.is-active .capture-target {
+  animation:
+    targetAcquire
+      500ms
+      ease
+      2.4s
+      both,
+
+    targetFreeDrift
+      2.3s
+      ease-in-out
+      2.9s
+      both,
+
+    targetCaptureImpulse
+      2.2s
+      var(--ease-standard)
+      5.2s
+      both,
+
+    targetCapturedTow
+      8s
+      ease-in-out
+      7.2s
+      infinite;
+}
+
+
+/* Launcher */
+
+.flagship.is-active .launcher-port {
+  animation:
+    launcherFire
+    450ms
+    ease
+    3.6s
+    both;
+}
+
+
+/* Projectiles */
+
+.flagship.is-active .projectile {
+  animation:
+    projectileLaunch
+    1.2s
+    cubic-bezier(0.15, 0.7, 0.2, 1)
+    3.65s
+    both;
+}
+
+
+/* Net */
+
+.flagship.is-active .capture-net {
+  animation:
+    netDeploy
+      1.7s
+      var(--ease-standard)
+      4.2s
+      both,
+
+    netTension
+      7s
+      ease-in-out
+      5.9s
+      infinite;
+}
+
+
+/* Tether */
+
+.flagship.is-active .capture-tether {
+  animation:
+    tetherExtend
+      2.1s
+      var(--ease-standard)
+      3.7s
+      both,
+
+    tetherTow
+      8s
+      ease-in-out
+      5.9s
+      infinite;
+}
+
+
+/* Corner nodes */
+
+.flagship.is-active .capture-net span {
+  animation:
+    nodeOnline
+      300ms
+      ease
+      5.2s
+      both,
+
+    telemetryPulse
+      2.8s
+      ease-in-out
+      5.7s
+      infinite;
+}
+
+.flagship.is-active .capture-net span:nth-child(2) {
+  animation-delay:
+    5.35s,
+    5.85s;
+}
+
+.flagship.is-active .capture-net span:nth-child(3) {
+  animation-delay:
+    5.5s,
+    6s;
+}
+
+.flagship.is-active .capture-net span:nth-child(4) {
+  animation-delay:
+    5.65s,
+    6.15s;
+}
+
+
+/* Confirmation */
+
+.flagship.is-active .capture-confirm {
+  animation:
+    captureConfirmed
+    600ms
+    ease
+    7.5s
+    both;
+}
+
+
+/* Specification sequence */
+
+.flagship.is-active .flagship-specs article:nth-child(1) {
+  opacity: 1;
+  transform: translateX(0);
+
+  transition-delay: 2.4s;
+}
+
+.flagship.is-active .flagship-specs article:nth-child(2) {
+  opacity: 1;
+  transform: translateX(0);
+
+  transition-delay: 4.2s;
+}
+
+.flagship.is-active .flagship-specs article:nth-child(3) {
+  opacity: 1;
+  transform: translateX(0);
+
+  transition-delay: 7.5s;
+}
+
+
+/* ============================================================
+   19. KEYFRAMES
+   ============================================================ */
+
+@keyframes sectionReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes vehicleEntry {
+  from {
+    opacity: 0;
+
+    transform:
+      translate3d(-55px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translate3d(0, 0, 0);
+  }
+}
+
+@keyframes acquisitionSweep {
+  0% {
+    left: 14%;
+    opacity: 0;
+  }
+
+  12% {
+    opacity: 0.65;
+  }
+
+  45% {
+    left: 48%;
+    opacity: 0.6;
+  }
+
+  75% {
+    left: 76%;
+    opacity: 0.7;
+  }
+
+  100% {
+    left: 78%;
+    opacity: 0;
+  }
+}
+
+@keyframes targetAcquire {
+  from {
+    opacity: 0;
+    filter: blur(5px);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes targetFreeDrift {
+  from {
+    transform:
+      translate3d(0, 0, 0)
+      rotate(24deg);
+  }
+
+  to {
+    transform:
+      translate3d(8px, -5px, 0)
+      rotate(30deg);
+  }
+}
+
+@keyframes launcherFire {
+  0% {
+    opacity: 0;
+
+    transform:
+      translateY(-50%)
+      scaleX(0.2);
+  }
+
+  25% {
+    opacity: 1;
+
+    transform:
+      translateY(-50%)
+      scaleX(2.5);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translateY(-50%)
+      scaleX(0.2);
+  }
+}
+
+@keyframes projectileLaunch {
+  0% {
+    left: 19%;
+
+    opacity: 0;
+
+    transform:
+      translate3d(0, 0, 0)
+      scale(0.5);
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  75% {
+    left: 69%;
+
+    transform:
+      translate3d(
+        0,
+        var(--projectile-y),
+        0
+      )
+      scale(1);
+  }
+
+  100% {
+    left: 75%;
+
+    opacity: 0.25;
+
+    transform:
+      translate3d(
+        0,
+        calc(var(--projectile-y) * 0.72),
+        0
+      )
+      scale(0.85);
+  }
+}
+
+@keyframes netDeploy {
+  0% {
+    opacity: 0;
+
+    transform:
+      perspective(600px)
+      rotateY(-28deg)
+      translateX(-130px)
+      scaleX(0.02)
+      scaleY(0.08);
+  }
+
+  20% {
+    opacity: 0.8;
+
+    transform:
+      perspective(600px)
+      rotateY(-26deg)
+      translateX(-70px)
+      scaleX(0.25)
+      scaleY(0.3);
+  }
+
+  65% {
+    opacity: 1;
+
+    transform:
+      perspective(600px)
+      rotateY(-20deg)
+      translateX(30px)
+      scaleX(1.12)
+      scaleY(1.18);
+  }
+
+  82% {
+    transform:
+      perspective(600px)
+      rotateY(-18deg)
+      translateX(48px)
+      scaleX(1.22)
+      scaleY(1.08);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform:
+      perspective(600px)
+      rotateY(-16deg)
+      translateX(35px)
+      scaleX(1)
+      scaleY(0.9);
+  }
+}
+
+@keyframes netTension {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+
+  50% {
+    filter: brightness(1.18);
+  }
+}
+
+@keyframes tetherExtend {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.7;
+  }
+
+  70% {
+    width: 58%;
+  }
+
+  100% {
+    width: 55%;
+    opacity: 0.9;
+  }
+}
+
+@keyframes tetherTow {
+  0%,
+  100% {
+    transform:
+      rotate(0deg)
+      scaleX(1);
+  }
+
+  25% {
+    transform:
+      rotate(-0.45deg)
+      scaleX(0.992);
+  }
+
+  50% {
+    transform:
+      rotate(0.3deg)
+      scaleX(1.004);
+  }
+
+  75% {
+    transform:
+      rotate(-0.15deg)
+      scaleX(0.998);
+  }
+}
+
+@keyframes targetCaptureImpulse {
+  0% {
+    transform:
+      translate3d(8px, -5px, 0)
+      rotate(30deg);
+  }
+
+  25% {
+    transform:
+      translate3d(18px, -7px, 0)
+      rotate(35deg);
+  }
+
+  58% {
+    transform:
+      translate3d(-9px, 3px, 0)
+      rotate(27deg);
+  }
+
+  78% {
+    transform:
+      translate3d(5px, -1px, 0)
+      rotate(31deg);
+  }
+
+  100% {
+    transform:
+      translate3d(0, 0, 0)
+      rotate(29deg);
+  }
+}
+
+@keyframes targetCapturedTow {
+  0% {
+    transform:
+      translate3d(0, 0, 0)
+      rotate(29deg);
+  }
+
+  50% {
+    transform:
+      translate3d(-10px, 2px, 0)
+      rotate(28deg);
+  }
+
+  100% {
+    transform:
+      translate3d(-18px, 0, 0)
+      rotate(28deg);
+  }
+}
+
+@keyframes vehicleCaptureRecoil {
+  0% {
+    transform: translateX(0);
+  }
+
+  30% {
+    transform: translateX(-6px);
+  }
+
+  58% {
+    transform: translateX(3px);
+  }
+
+  78% {
+    transform: translateX(-1px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes skyfallTowState {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(-3px, -1px, 0);
+  }
+
+  100% {
+    transform: translate3d(-6px, 0, 0);
+  }
+}
+
+@keyframes nodeOnline {
+  from {
+    opacity: 0;
+
+    transform:
+      scale(0.2);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      scale(1);
+  }
+}
+
+@keyframes telemetryPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+
+    box-shadow:
+      0 0 8px rgba(121, 191, 255, 0.35);
+  }
+
+  50% {
+    opacity: 1;
+
+    box-shadow:
+      0 0 8px rgba(121, 191, 255, 0.9),
+      0 0 24px rgba(121, 191, 255, 0.55);
+  }
+}
+
+@keyframes captureConfirmed {
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
