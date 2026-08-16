@@ -17,13 +17,23 @@ function Header() {
   return (
     <header className="site-header-shell">
       <div className="site-header">
+
         <a
           className="brand"
           href="#top"
           aria-label="Skyfall home"
           onClick={closeMenu}
         >
-          SKYFALL
+          <img
+            className="brand-logo"
+            src="/manifestation.png"
+            alt=""
+            aria-hidden="true"
+          />
+
+          <span className="brand-wordmark">
+            SKYFALL
+          </span>
         </a>
 
         <nav

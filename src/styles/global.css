@@ -1,3 +1,139 @@
+/* ============================================================
+   SKYFALL / GLOBAL DESIGN TOKENS
+   ============================================================ */
+
+:root {
+  /* ==========================================================
+     CORE BACKGROUNDS
+     ========================================================== */
+
+  --skyfall-black:
+    #030609;
+
+  --skyfall-black-raised:
+    #05090d;
+
+  --skyfall-charcoal:
+    #080d12;
+
+
+  /* ==========================================================
+     BLUE / NAVY ENVIRONMENTS
+     ========================================================== */
+
+  --skyfall-blue-black:
+    #061019;
+
+  --skyfall-deep-navy:
+    #081522;
+
+  --skyfall-navy-raised:
+    #0b1a28;
+
+  --skyfall-steel:
+    #0d1821;
+
+  --skyfall-slate-navy:
+    #101c24;
+
+
+  /* ==========================================================
+     ACTIVE / TECHNICAL ACCENTS
+     ========================================================== */
+
+  --skyfall-blue:
+    #79bfff;
+
+  --skyfall-blue-soft:
+    rgba(121, 191, 255, 0.16);
+
+  --skyfall-blue-faint:
+    rgba(121, 191, 255, 0.07);
+
+  --skyfall-cyan:
+    #70d4e8;
+
+
+  /* ==========================================================
+     WARM INSTRUMENTATION
+     ========================================================== */
+
+  --skyfall-amber:
+    #d89a52;
+
+  --skyfall-amber-hot:
+    #f0a04b;
+
+  --skyfall-amber-soft:
+    rgba(216, 154, 82, 0.14);
+
+
+  /* ==========================================================
+     TEXT
+     ========================================================== */
+
+  --skyfall-white:
+    #eef4f8;
+
+  --skyfall-text:
+    #c3d0d8;
+
+  --skyfall-muted:
+    #92a4b0;
+
+  --skyfall-dim:
+    #6f818d;
+
+
+  /* ==========================================================
+     BORDERS
+     ========================================================== */
+
+  --skyfall-border:
+    rgba(121, 191, 255, 0.09);
+
+  --skyfall-border-strong:
+    rgba(121, 191, 255, 0.18);
+
+
+  /* ==========================================================
+     SECTION BACKGROUNDS
+     ========================================================== */
+
+  --bg-hero:
+    #030609;
+
+  --bg-flagship:
+    #061019;
+
+  --bg-technology:
+    #081522;
+
+  --bg-industries:
+    #0b1822;
+
+  --bg-missions:
+    #071016;
+
+  --bg-capabilities:
+    #091723;
+
+  --bg-products:
+    #050a0f;
+
+  --bg-research:
+    #0b1720;
+
+  --bg-company:
+    #0c1114;
+
+  --bg-contact:
+    #07121b;
+
+  --bg-footer:
+    #020507;
+}
+
 *,
 *::before,
 *::after {
@@ -158,3 +294,153 @@ a:focus-visible,
 button:focus-visible {
   border-radius: 3px;
 }
+
+/* ============================================================
+   SKYFALL / GLOBAL BACKDROP
+   ============================================================ */
+
+.app-shell {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+}
+
+.app-shell::before {
+  content: "";
+
+  position: fixed;
+  z-index: -2;
+
+  inset: -20%;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 78% 14%,
+      rgba(121, 191, 255, 0.035),
+      transparent 28%
+    ),
+    repeating-linear-gradient(
+      115deg,
+      transparent 0,
+      transparent 120px,
+      rgba(121, 191, 255, 0.012) 121px,
+      transparent 122px
+    );
+
+  animation:
+    skyfallBackdropDrift
+    45s
+    linear
+    infinite;
+
+  will-change: transform;
+}
+
+@keyframes skyfallBackdropDrift {
+  from {
+    transform:
+      translate3d(0, 0, 0);
+  }
+
+  to {
+    transform:
+      translate3d(-90px, 70px, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-shell::before {
+    animation: none;
+  }
+}
+
+/* ============================================================
+   SECURED SITE / ANIMATION INTERLOCK
+   ============================================================ */
+
+/*
+   The website exists behind the gateway, but its cinematic
+   startup timeline does not advance until access is complete.
+*/
+
+/* ============================================================
+   SECURED SITE / ANIMATION INTERLOCK
+   ============================================================ */
+
+.app-shell.is-site-locked
+.hero *,
+.app-shell.is-site-locked
+.hero::before,
+.app-shell.is-site-locked
+.hero::after,
+.app-shell.is-site-locked
+.mission-strip,
+.app-shell.is-site-locked
+.mission-strip *,
+.app-shell.is-site-locked
+.mission-strip::before,
+.app-shell.is-site-locked
+.mission-strip::after {
+  animation-play-state:
+    paused !important;
+}
+
+
+/*
+   Release all Hero systems when the secured gateway
+   has completed its shutdown.
+*/
+
+
+.app-shell.is-site-ready
+.hero *,
+.app-shell.is-site-ready
+.hero::before,
+.app-shell.is-site-ready
+.hero::after,
+.app-shell.is-site-ready
+.mission-strip,
+.app-shell.is-site-ready
+.mission-strip *,
+.app-shell.is-site-ready
+.mission-strip::before,
+.app-shell.is-site-ready
+.mission-strip::after {
+  animation-play-state:
+    running;
+}
+
+
+/* Dormant facility behind opening doors */
+
+.app-shell.is-site-locked
+.hero {
+  filter:
+    brightness(0.42)
+    saturate(0.35);
+
+  transition:
+    filter
+    1.4s
+    cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    );
+}
+
+
+.app-shell.is-site-ready
+.hero {
+  filter:
+    brightness(1)
+    saturate(1);
+}
+
+/* ============================================================
+   FACILITY BEHIND THE GATE
+   ============================================================ */
+

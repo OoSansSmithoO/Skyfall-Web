@@ -20,7 +20,7 @@ function ContactSection() {
           </h2>
 
           <p>
-            Talk with Skyfall about capture systems, autonomy, mission
+            Talk with Skyfall's team about capture systems, autonomy, mission
             software, spacecraft integration, research programs, and
             commercial partnerships.
           </p>
@@ -43,24 +43,7 @@ function ContactSection() {
         </div>
       </div>
 
-      <footer className="site-footer">
-        <a
-          className="footer-brand"
-          href="#top"
-        >
-          SKYFALL
-        </a>
-
-        <div className="footer-meta">
-          <span>AUTONOMOUS SYSTEMS</span>
-          <span>SPACE TECHNOLOGY</span>
-          <span>MISSION SOFTWARE</span>
-        </div>
-
-        <span className="footer-copy">
-          © SKYFALL
-        </span>
-      </footer>
+      
     </section>
   )
 }

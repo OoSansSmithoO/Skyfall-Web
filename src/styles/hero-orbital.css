@@ -1,0 +1,2490 @@
+/* ============================================================
+   SKYFALL / HERO ORBITAL NETWORK
+   MASTER CLEAN VERSION
+
+   Owns:
+   - orbital simulation panel
+   - legacy amber startup
+   - Earth / orbit visualization
+   - spacecraft nodes
+   - target acquisition
+   - simulated telemetry
+   - internal mission sequence
+   - mobile / reduced-motion behavior
+
+   Does NOT own:
+   - Hero copy
+   - Hero section background
+   - Hero layout
+   - lower MissionStrip
+   - Technology section
+   - gate / preloader
+   ============================================================ */
+
+
+/* ============================================================
+   01. ROOT PANEL
+   ============================================================ */
+
+.hero-orbital-network {
+  /* Local aliases to global Skyfall design tokens */
+
+  --hero-blue:
+    var(--skyfall-blue);
+
+  --hero-blue-soft:
+    rgba(121, 191, 255, 0.28);
+
+  --hero-blue-faint:
+    rgba(121, 191, 255, 0.08);
+
+  --hero-amber:
+    var(--skyfall-amber);
+
+  --hero-amber-soft:
+    rgba(216, 154, 82, 0.2);
+
+  --hero-amber-hot:
+    rgba(255, 181, 85, 0.7);
+
+  position:
+    relative;
+
+  width:
+    100%;
+
+  max-width:
+    660px;
+
+  min-height:
+    560px;
+
+  overflow:
+    hidden;
+
+  isolation:
+    isolate;
+
+  box-sizing:
+    border-box;
+
+  border:
+    1px solid
+    var(--skyfall-border-strong);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(7, 11, 15, 0.98),
+      var(--skyfall-black)
+    );
+
+  opacity:
+    0;
+
+  filter:
+    brightness(0.42)
+    saturate(0.34);
+
+  box-shadow:
+    inset 0 0 0 1px
+    rgba(216, 154, 82, 0.02);
+
+  animation:
+    heroPanelPowerOn
+      2.2s
+      cubic-bezier(0.16, 1, 0.3, 1)
+      180ms
+      forwards,
+
+    heroPanelColorSettle
+      1.8s
+      ease
+      1.35s
+      forwards;
+}
+
+
+/* ============================================================
+   02. AMBER FILAMENT FIELD
+   ============================================================ */
+
+.hero-orbital-network::before {
+  content: "";
+
+  position:
+    absolute;
+
+  z-index:
+    20;
+
+  inset:
+    0;
+
+  pointer-events:
+    none;
+
+  background:
+    radial-gradient(
+      ellipse at 13% 86%,
+      rgba(255, 168, 64, 0.34),
+      rgba(210, 100, 20, 0.09) 30%,
+      transparent 58%
+    ),
+
+    radial-gradient(
+      ellipse at 86% 16%,
+      rgba(255, 189, 95, 0.22),
+      rgba(214, 110, 27, 0.065) 32%,
+      transparent 57%
+    ),
+
+    radial-gradient(
+      circle at 50% 68%,
+      rgba(229, 124, 32, 0.09),
+      transparent 46%
+    );
+
+  opacity:
+    0;
+
+  mix-blend-mode:
+    screen;
+
+  animation:
+    heroFilamentWarmup
+      2.1s
+      ease
+      120ms
+      both,
+
+    heroFilamentIdle
+      5s
+      ease-in-out
+      2.3s
+      infinite;
+}
+
+
+/* ============================================================
+   03. GLASS / CRT TEXTURE
+   ============================================================ */
+
+.hero-orbital-network::after {
+  content: "";
+
+  position:
+    absolute;
+
+  z-index:
+    21;
+
+  inset:
+    0;
+
+  pointer-events:
+    none;
+
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0,
+      transparent 3px,
+      rgba(255, 255, 255, 0.008) 4px
+    );
+
+  opacity:
+    0;
+
+  animation:
+    heroRasterBoot
+      1.4s
+      ease
+      420ms
+      forwards;
+}
+
+
+/* ============================================================
+   04. TOP STATUS BAR
+   ============================================================ */
+
+.hero-network-topline {
+  position:
+    relative;
+
+  z-index:
+    8;
+
+  min-height:
+    44px;
+
+  padding:
+    0
+    17px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  border-bottom:
+    1px solid
+    var(--skyfall-border);
+
+  color:
+    #6d8799;
+
+  font-size:
+    0.42rem;
+
+  letter-spacing:
+    0.12em;
+
+  opacity:
+    0;
+
+  transform:
+    translateY(-5px);
+
+  animation:
+    heroElementOnline
+      540ms
+      ease
+      500ms
+      forwards;
+}
+
+
+.hero-sim-status {
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  gap:
+    7px;
+}
+
+
+.hero-sim-status i {
+  width:
+    5px;
+
+  height:
+    5px;
+
+  display:
+    inline-block;
+
+  border-radius:
+    50%;
+
+  background:
+    #5e3012;
+
+  opacity:
+    0;
+
+  animation:
+    heroSimulationLampBoot
+      1.4s
+      ease
+      760ms
+      forwards,
+
+    heroSimulationLampIdle
+      2.8s
+      ease-in-out
+      2.3s
+      infinite;
+}
+
+
+/* ============================================================
+   05. EARTH FIELD
+   ============================================================ */
+
+.hero-earth-field {
+  position:
+    relative;
+
+  min-height:
+    390px;
+
+  overflow:
+    hidden;
+
+  isolation:
+    isolate;
+}
+
+
+/* Cool shield around Earth */
+
+.hero-earth-field::after {
+  content: "";
+
+  position:
+    absolute;
+
+  z-index:
+    1;
+
+  left:
+    50%;
+
+  top:
+    49%;
+
+  width:
+    340px;
+
+  height:
+    340px;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius:
+    50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(2, 8, 14, 0.12) 0%,
+      rgba(2, 8, 14, 0.34) 42%,
+      rgba(2, 8, 14, 0.11) 61%,
+      transparent 76%
+    );
+
+  pointer-events:
+    none;
+}
+
+
+/* ============================================================
+   06. EARTH GLOW
+   ============================================================ */
+
+.hero-earth-glow {
+  position:
+    absolute;
+
+  z-index:
+    1;
+
+  left:
+    50%;
+
+  top:
+    49%;
+
+  width:
+    235px;
+
+  height:
+    235px;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius:
+    50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(121, 191, 255, 0.14),
+      rgba(121, 191, 255, 0.04) 42%,
+      transparent 70%
+    );
+
+  filter:
+    blur(16px);
+
+  opacity:
+    0;
+
+  animation:
+    heroElementOnline
+      760ms
+      ease
+      720ms
+      forwards;
+}
+
+
+/* ============================================================
+   07. EARTH
+   ============================================================ */
+
+.hero-earth {
+  position:
+    absolute;
+
+  z-index:
+    5;
+
+  left:
+    50%;
+
+  top:
+    49%;
+
+  width:
+    188px;
+
+  height:
+    188px;
+
+  transform:
+    translate(-50%, -50%);
+
+  overflow:
+    hidden;
+
+  border:
+    1px solid
+    rgba(121, 191, 255, 0.18);
+
+  border-radius:
+    50%;
+
+  background:
+    radial-gradient(
+      circle at 35% 32%,
+      #0f2d42,
+      #07131f 48%,
+      #02070c 78%
+    );
+
+  opacity:
+    0;
+
+  filter:
+    sepia(0.72)
+    brightness(0.72);
+
+  box-shadow:
+    inset -32px -18px 44px
+    rgba(0, 0, 0, 0.72),
+
+    0 0 26px
+    rgba(121, 191, 255, 0.04);
+
+  animation:
+    heroEarthBoot
+      1.05s
+      ease
+      820ms
+      forwards;
+}
+
+
+/* ============================================================
+   08. EARTH GRID
+   ============================================================ */
+
+.hero-earth-grid {
+  position:
+    absolute;
+
+  inset:
+    8%;
+
+  border:
+    1px solid
+    rgba(121, 191, 255, 0.08);
+
+  border-radius:
+    50%;
+}
+
+
+.hero-earth-grid-a {
+  transform:
+    scaleX(0.42);
+}
+
+
+.hero-earth-grid-b {
+  transform:
+    rotate(90deg)
+    scaleX(0.42);
+}
+
+
+.hero-earth-grid-c {
+  transform:
+    rotate(28deg)
+    scaleY(0.5);
+}
+
+
+/* ============================================================
+   09. STYLIZED LAND MASSES
+   ============================================================ */
+
+.hero-land {
+  position:
+    absolute;
+
+  border:
+    1px solid
+    rgba(121, 191, 255, 0.23);
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(121, 191, 255, 0.018);
+}
+
+
+.land-one {
+  left:
+    31%;
+
+  top:
+    26%;
+
+  width:
+    39px;
+
+  height:
+    32px;
+
+  transform:
+    rotate(-18deg);
+}
+
+
+.land-two {
+  left:
+    51%;
+
+  top:
+    37%;
+
+  width:
+    47px;
+
+  height:
+    30px;
+
+  transform:
+    rotate(12deg);
+}
+
+
+.land-three {
+  left:
+    59%;
+
+  top:
+    68%;
+
+  width:
+    32px;
+
+  height:
+    17px;
+
+  transform:
+    rotate(-14deg);
+}
+
+
+.hero-earth-shadow {
+  position:
+    absolute;
+
+  inset:
+    0;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent 30%,
+      rgba(0, 0, 0, 0.12) 48%,
+      rgba(0, 0, 0, 0.68) 82%
+    );
+}
+
+
+/* ============================================================
+   10. POLAR GROUND STATION
+   ============================================================ */
+
+.hero-ground-station {
+  position:
+    absolute;
+
+  z-index:
+    3;
+
+  left:
+    29%;
+
+  top:
+    17%;
+}
+
+
+.hero-ground-dot {
+  width:
+    5px;
+
+  height:
+    5px;
+
+  display:
+    block;
+
+  border-radius:
+    50%;
+
+  background:
+    var(--hero-blue);
+
+  box-shadow:
+    0 0 8px
+    rgba(121, 191, 255, 0.68);
+}
+
+
+.hero-ground-label {
+  position:
+    absolute;
+
+  left:
+    9px;
+
+  top:
+    -4px;
+
+  width:
+    max-content;
+
+  color:
+    rgba(121, 191, 255, 0.6);
+
+  font-size:
+    0.31rem;
+
+  letter-spacing:
+    0.08em;
+}
+
+
+/* ============================================================
+   11. ORBIT PATHS
+   ============================================================ */
+
+.hero-orbit {
+  position:
+    absolute;
+
+  z-index:
+    2;
+
+  left:
+    50%;
+
+  top:
+    49%;
+
+  border:
+    1px solid
+    rgba(121, 191, 255, 0.12);
+
+  border-radius:
+    50%;
+
+  opacity:
+    0;
+}
+
+
+.hero-orbit-one {
+  width:
+    360px;
+
+  height:
+    165px;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-14deg);
+
+  animation:
+    heroOrbitBootOne
+      700ms
+      ease
+      1.03s
+      forwards;
+}
+
+
+.hero-orbit-two {
+  width:
+    315px;
+
+  height:
+    230px;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(28deg);
+
+  animation:
+    heroOrbitBootTwo
+      700ms
+      ease
+      1.16s
+      forwards;
+}
+
+
+.hero-orbit-three {
+  width:
+    225px;
+
+  height:
+    320px;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-7deg);
+
+  animation:
+    heroOrbitBootThree
+      700ms
+      ease
+      1.28s
+      forwards;
+}
+
+
+/* ============================================================
+   12. SPACECRAFT NODES
+   ============================================================ */
+
+.hero-node {
+  position:
+    absolute;
+
+  z-index:
+    8;
+
+  display:
+    grid;
+
+  justify-items:
+    center;
+
+  gap:
+    7px;
+
+  opacity:
+    0;
+
+  transform:
+    translateY(6px)
+    scale(0.84);
+
+  animation:
+    heroNodeOnline
+      680ms
+      cubic-bezier(0.16, 1, 0.3, 1)
+      forwards;
+}
+
+
+.hero-node-one {
+  left:
+    16%;
+
+  top:
+    47%;
+
+  animation-delay:
+    1.55s;
+}
+
+
+.hero-node-two {
+  right:
+    12%;
+
+  top:
+    22%;
+
+  animation-delay:
+    1.75s;
+}
+
+
+.hero-node-three {
+  right:
+    17%;
+
+  bottom:
+    12%;
+
+  animation-delay:
+    1.95s;
+}
+
+
+.hero-node-four {
+  left:
+    47%;
+
+  top:
+    10%;
+
+  animation-delay:
+    1.35s;
+}
+
+
+/* ============================================================
+   13. NODE CORE
+   ============================================================ */
+
+.hero-node-core,
+.hero-node-logo {
+  width:
+    39px;
+
+  height:
+    39px;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  transform:
+    rotate(45deg);
+
+  border:
+    1px solid
+    rgba(121, 191, 255, 0.42);
+
+  background:
+    rgba(3, 8, 12, 0.9);
+
+  color:
+    #8ec9f6;
+
+  font-size:
+    0.42rem;
+
+  box-shadow:
+    0 0 10px
+    rgba(121, 191, 255, 0.03);
+}
+
+
+.hero-node-core {
+  font-family:
+    "Cascadia Code",
+    Consolas,
+    monospace;
+
+  line-height:
+    1;
+}
+
+
+.hero-node-core span {
+  display:
+    block;
+
+  transform:
+    rotate(-45deg);
+}
+
+
+.hero-node-logo img {
+  width:
+    28px;
+
+  height:
+    28px;
+
+  object-fit:
+    contain;
+
+  transform:
+    rotate(-45deg);
+
+  filter:
+    brightness(1.05);
+}
+
+
+.hero-node small {
+  color:
+    #627d90;
+
+  font-size:
+    0.31rem;
+
+  letter-spacing:
+    0.09em;
+}
+
+
+/* ============================================================
+   14. SKYFALL NODE EMPHASIS
+   ============================================================ */
+
+.hero-node-four
+.hero-node-logo {
+  border-color:
+    rgba(121, 191, 255, 0.82);
+
+  box-shadow:
+    0 0 6px
+    rgba(121, 191, 255, 0.28),
+
+    0 0 18px
+    rgba(121, 191, 255, 0.1);
+}
+
+
+.hero-node-four small {
+  color:
+    #93aec0;
+}
+
+
+/* ============================================================
+   15. TARGET
+   ============================================================ */
+
+.hero-target {
+  position:
+    absolute;
+
+  z-index:
+    8;
+
+  right:
+    25%;
+
+  top:
+    38%;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    7px;
+
+  opacity:
+    0;
+
+  animation:
+    heroTargetOnline
+      640ms
+      ease
+      2.1s
+      forwards;
+}
+
+
+.hero-target > span {
+  width:
+    8px;
+
+  height:
+    8px;
+
+  transform:
+    rotate(45deg);
+
+  border:
+    1px solid
+    rgba(217, 222, 226, 0.56);
+}
+
+
+.hero-target small {
+  color:
+    #8a9da9;
+
+  font-size:
+    0.31rem;
+
+  letter-spacing:
+    0.08em;
+}
+
+
+/* ============================================================
+   16. ACQUISITION RINGS
+   ============================================================ */
+
+.hero-acquisition-ring {
+  position:
+    absolute;
+
+  z-index:
+    3;
+
+  left:
+    57%;
+
+  top:
+    53%;
+
+  border:
+    1px dashed
+    rgba(121, 191, 255, 0.18);
+
+  border-radius:
+    50%;
+
+  opacity:
+    0;
+}
+
+
+.ring-one {
+  width:
+    74px;
+
+  height:
+    74px;
+
+  animation:
+    heroAcquisitionPulse
+      2.4s
+      ease-out
+      2.15s
+      infinite;
+}
+
+
+.ring-two {
+  width:
+    100px;
+
+  height:
+    100px;
+
+  transform:
+    translate(-13px, -13px);
+
+  animation:
+    heroAcquisitionPulse
+      2.4s
+      ease-out
+      2.65s
+      infinite;
+}
+
+
+/* ============================================================
+   17. INTERCEPT PATH
+   ============================================================ */
+
+.hero-intercept-path {
+  position:
+    absolute;
+
+  z-index:
+    3;
+
+  left:
+    55%;
+
+  top:
+    46%;
+
+  width:
+    120px;
+
+  height:
+    1px;
+
+  transform:
+    rotate(31deg)
+    scaleX(0);
+
+  transform-origin:
+    left center;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(121, 191, 255, 0.52),
+      rgba(121, 191, 255, 0.08)
+    );
+
+  opacity:
+    0;
+
+  animation:
+    heroPathOnline
+      900ms
+      ease
+      2.7s
+      forwards;
+}
+
+
+/* ============================================================
+   18. DATA STREAM
+   ============================================================ */
+
+.hero-link-stream {
+  position:
+    absolute;
+
+  z-index:
+    4;
+
+  left:
+    34%;
+
+  top:
+    23%;
+
+  width:
+    132px;
+
+  height:
+    76px;
+
+  transform:
+    rotate(56deg);
+
+  opacity:
+    0;
+
+  animation:
+    heroDataOnline
+      700ms
+      ease
+      2.25s
+      forwards;
+}
+
+
+.hero-link-stream span {
+  position:
+    absolute;
+
+  left:
+    0;
+
+  color:
+    rgba(121, 191, 255, 0.16);
+
+  font-family:
+    "Cascadia Code",
+    Consolas,
+    monospace;
+
+  font-size:
+    0.31rem;
+
+  letter-spacing:
+    0.07em;
+
+  animation:
+    heroDataPacket
+      4.6s
+      linear
+      infinite;
+}
+
+
+.hero-link-stream span:nth-child(1) {
+  top:
+    5px;
+}
+
+
+.hero-link-stream span:nth-child(2) {
+  top:
+    23px;
+
+  animation-delay:
+    -1.2s;
+}
+
+
+.hero-link-stream span:nth-child(3) {
+  top:
+    41px;
+
+  animation-delay:
+    -2.4s;
+}
+
+
+.hero-link-stream span:nth-child(4) {
+  top:
+    59px;
+
+  animation-delay:
+    -3.4s;
+}
+
+
+/* ============================================================
+   19. MAP READOUT
+   ============================================================ */
+
+.hero-map-readout {
+  position:
+    absolute;
+
+  z-index:
+    8;
+
+  left:
+    17px;
+
+  bottom:
+    16px;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    auto auto;
+
+  gap:
+    5px
+    14px;
+
+  color:
+    #60798b;
+
+  font-size:
+    0.36rem;
+
+  letter-spacing:
+    0.1em;
+
+  opacity:
+    0;
+
+  animation:
+    heroTelemetryBoot
+      700ms
+      steps(5, end)
+      1.85s
+      forwards;
+}
+
+
+.hero-map-readout strong {
+  color:
+    #91aabd;
+
+  font-weight:
+    500;
+}
+
+
+/* ============================================================
+   20. MISSION SEQUENCE
+   ============================================================ */
+
+.hero-mission-sequence {
+  position:
+    relative;
+
+  z-index:
+    6;
+
+  min-height:
+    126px;
+
+  border-top:
+    1px solid
+    var(--skyfall-border);
+
+  opacity:
+    0;
+
+  animation:
+    heroTelemetryBoot
+      700ms
+      steps(5, end)
+      2s
+      forwards;
+}
+
+
+/* Localized amber tube bank */
+
+.hero-mission-sequence::before {
+  content: "";
+
+  position:
+    absolute;
+
+  z-index:
+    -1;
+
+  inset:
+    0;
+
+  pointer-events:
+    none;
+
+  background:
+    radial-gradient(
+      ellipse at 10% 90%,
+      rgba(255, 181, 80, 0.42),
+      transparent 42%
+    ),
+
+    radial-gradient(
+      ellipse at 32% 90%,
+      rgba(255, 187, 89, 0.32),
+      transparent 42%
+    ),
+
+    radial-gradient(
+      ellipse at 55% 90%,
+      rgba(255, 169, 66, 0.29),
+      transparent 42%
+    ),
+
+    radial-gradient(
+      ellipse at 78% 90%,
+      rgba(255, 182, 82, 0.33),
+      transparent 42%
+    ),
+
+    radial-gradient(
+      ellipse at 96% 90%,
+      rgba(255, 173, 70, 0.38),
+      transparent 42%
+    );
+
+  filter:
+    blur(13px);
+
+  opacity:
+    0;
+
+  animation:
+    heroSequenceBankWarmup
+      2.4s
+      ease
+      1.7s
+      forwards;
+}
+
+
+/* ============================================================
+   21. SEQUENCE ROWS
+   ============================================================ */
+
+.hero-sequence-header,
+.hero-sequence-row {
+  min-height:
+    21px;
+
+  padding:
+    0
+    18px;
+
+  display:
+    grid;
+
+  align-items:
+    center;
+
+  border-bottom:
+    1px solid
+    rgba(121, 191, 255, 0.05);
+}
+
+
+.hero-sequence-header {
+  grid-template-columns:
+    1fr auto;
+
+  color:
+    #6c8495;
+
+  font-size:
+    0.38rem;
+
+  letter-spacing:
+    0.11em;
+}
+
+
+.hero-sequence-row {
+  position:
+    relative;
+
+  grid-template-columns:
+    36px
+    1fr
+    auto;
+
+  color:
+    #708795;
+
+  font-size:
+    0.38rem;
+
+  letter-spacing:
+    0.09em;
+
+  opacity:
+    0;
+
+  transform:
+    translateY(4px);
+}
+
+
+.hero-sequence-row::before {
+  content: "";
+
+  position:
+    absolute;
+
+  left:
+    7px;
+
+  top:
+    50%;
+
+  width:
+    4px;
+
+  height:
+    4px;
+
+  transform:
+    translateY(-50%)
+    scale(0.4);
+
+  border-radius:
+    50%;
+
+  background:
+    #7b4018;
+
+  opacity:
+    0;
+}
+
+
+.hero-sequence-row > span {
+  color:
+    var(--hero-amber);
+}
+
+
+.hero-sequence-row strong {
+  color:
+    #aabac5;
+
+  font-weight:
+    500;
+}
+
+
+.hero-sequence-row small {
+  color:
+    #617987;
+
+  font-size:
+    0.34rem;
+}
+
+
+/* ============================================================
+   22. SEQUENTIAL ROW BOOT
+   ============================================================ */
+
+.sequence-detect {
+  animation:
+    heroSequenceRowBoot
+      820ms
+      ease
+      2.25s
+      forwards;
+}
+
+
+.sequence-detect::before {
+  animation:
+    heroSequenceLampBoot
+      1.05s
+      ease
+      2.1s
+      forwards;
+}
+
+
+.sequence-approach {
+  animation:
+    heroSequenceRowBoot
+      820ms
+      ease
+      2.58s
+      forwards;
+}
+
+
+.sequence-approach::before {
+  animation:
+    heroSequenceLampBoot
+      1.05s
+      ease
+      2.43s
+      forwards;
+}
+
+
+.sequence-capture {
+  animation:
+    heroSequenceRowBoot
+      820ms
+      ease
+      2.91s
+      forwards;
+}
+
+
+.sequence-capture::before {
+  animation:
+    heroSequenceLampBoot
+      1.05s
+      ease
+      2.76s
+      forwards;
+}
+
+
+.sequence-stabilize {
+  animation:
+    heroSequenceRowBoot
+      820ms
+      ease
+      3.24s
+      forwards;
+}
+
+
+.sequence-stabilize::before {
+  animation:
+    heroSequenceLampBoot
+      1.05s
+      ease
+      3.09s
+      forwards;
+}
+
+
+.sequence-recover {
+  animation:
+    heroSequenceRowBoot
+      820ms
+      ease
+      3.57s
+      forwards;
+}
+
+
+.sequence-recover::before {
+  animation:
+    heroSequenceLampBoot
+      1.05s
+      ease
+      3.42s
+      forwards;
+}
+
+
+/* ============================================================
+   23. PANEL / SYSTEM KEYFRAMES
+   ============================================================ */
+
+@keyframes heroPanelPowerOn {
+  0% {
+    opacity:
+      0;
+
+    filter:
+      brightness(0.34)
+      saturate(0.24);
+  }
+
+  24% {
+    opacity:
+      0.48;
+
+    filter:
+      brightness(0.54)
+      saturate(0.36);
+  }
+
+  52% {
+    opacity:
+      0.82;
+
+    filter:
+      brightness(0.76)
+      saturate(0.6);
+  }
+
+  100% {
+    opacity:
+      1;
+
+    filter:
+      brightness(1)
+      saturate(1);
+  }
+}
+
+
+@keyframes heroPanelColorSettle {
+  0% {
+    box-shadow:
+      inset 0 0 36px
+      rgba(216, 154, 82, 0.09);
+  }
+
+  50% {
+    box-shadow:
+      inset 0 0 22px
+      rgba(216, 154, 82, 0.06);
+  }
+
+  100% {
+    box-shadow:
+      inset 0 0 0 1px
+      rgba(121, 191, 255, 0.025);
+  }
+}
+
+
+@keyframes heroFilamentWarmup {
+  0% {
+    opacity:
+      0;
+
+    filter:
+      blur(24px)
+      brightness(0.3);
+  }
+
+  37% {
+    opacity:
+      0.58;
+  }
+
+  59% {
+    opacity:
+      0.92;
+
+    filter:
+      blur(16px)
+      brightness(1.35);
+  }
+
+  100% {
+    opacity:
+      0.5;
+
+    filter:
+      blur(18px)
+      brightness(1);
+  }
+}
+
+
+@keyframes heroFilamentIdle {
+  0%,
+  100% {
+    opacity:
+      0.5;
+  }
+
+  46% {
+    opacity:
+      0.58;
+  }
+
+  68% {
+    opacity:
+      0.53;
+  }
+}
+
+
+@keyframes heroRasterBoot {
+  from {
+    opacity:
+      0;
+  }
+
+  to {
+    opacity:
+      0.22;
+  }
+}
+
+
+@keyframes heroElementOnline {
+  from {
+    opacity:
+      0;
+
+    transform:
+      translateY(-5px);
+  }
+
+  to {
+    opacity:
+      1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+
+@keyframes heroEarthBoot {
+  0% {
+    opacity:
+      0;
+
+    filter:
+      sepia(0.8)
+      brightness(0.55);
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.88);
+  }
+
+  45% {
+    opacity:
+      0.86;
+
+    filter:
+      sepia(0.5)
+      brightness(0.86);
+  }
+
+  100% {
+    opacity:
+      1;
+
+    filter:
+      sepia(0)
+      brightness(1);
+
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+  }
+}
+
+
+@keyframes heroOrbitBootOne {
+  from {
+    opacity:
+      0;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(-14deg)
+      scale(0.72);
+  }
+
+  to {
+    opacity:
+      1;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(-14deg)
+      scale(1);
+  }
+}
+
+
+@keyframes heroOrbitBootTwo {
+  from {
+    opacity:
+      0;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(28deg)
+      scale(0.72);
+  }
+
+  to {
+    opacity:
+      1;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(28deg)
+      scale(1);
+  }
+}
+
+
+@keyframes heroOrbitBootThree {
+  from {
+    opacity:
+      0;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(-7deg)
+      scale(0.72);
+  }
+
+  to {
+    opacity:
+      1;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(-7deg)
+      scale(1);
+  }
+}
+
+
+@keyframes heroNodeOnline {
+  from {
+    opacity:
+      0;
+
+    transform:
+      translateY(6px)
+      scale(0.84);
+  }
+
+  to {
+    opacity:
+      1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+@keyframes heroTargetOnline {
+  from {
+    opacity:
+      0;
+
+    transform:
+      translateX(8px);
+  }
+
+  to {
+    opacity:
+      1;
+
+    transform:
+      translateX(0);
+  }
+}
+
+
+@keyframes heroSimulationLampBoot {
+  0% {
+    opacity:
+      0;
+
+    background:
+      #5e3012;
+
+    box-shadow:
+      none;
+
+    transform:
+      scale(0.3);
+  }
+
+  44% {
+    opacity:
+      1;
+
+    background:
+      #ffc16c;
+
+    box-shadow:
+      0 0 4px #ffc16c,
+      0 0 11px
+      rgba(240, 160, 75, 0.78);
+
+    transform:
+      scale(1.2);
+  }
+
+  100% {
+    opacity:
+      1;
+
+    background:
+      var(--hero-blue);
+
+    box-shadow:
+      0 0 8px
+      rgba(121, 191, 255, 0.62);
+
+    transform:
+      scale(1);
+  }
+}
+
+
+@keyframes heroSimulationLampIdle {
+  0%,
+  100% {
+    opacity:
+      0.8;
+  }
+
+  50% {
+    opacity:
+      1;
+  }
+}
+
+
+@keyframes heroAcquisitionPulse {
+  0% {
+    opacity:
+      0;
+
+    transform:
+      scale(0.6);
+  }
+
+  35% {
+    opacity:
+      0.36;
+  }
+
+  100% {
+    opacity:
+      0;
+
+    transform:
+      scale(1.45);
+  }
+}
+
+
+@keyframes heroPathOnline {
+  from {
+    opacity:
+      0;
+
+    transform:
+      rotate(31deg)
+      scaleX(0);
+  }
+
+  to {
+    opacity:
+      0.62;
+
+    transform:
+      rotate(31deg)
+      scaleX(1);
+  }
+}
+
+
+@keyframes heroDataOnline {
+  from {
+    opacity:
+      0;
+  }
+
+  to {
+    opacity:
+      1;
+  }
+}
+
+
+@keyframes heroDataPacket {
+  from {
+    transform:
+      translateX(0);
+
+    opacity:
+      0;
+  }
+
+  20% {
+    opacity:
+      0.24;
+  }
+
+  80% {
+    opacity:
+      0.13;
+  }
+
+  to {
+    transform:
+      translateX(105px);
+
+    opacity:
+      0;
+  }
+}
+
+
+@keyframes heroTelemetryBoot {
+  from {
+    opacity:
+      0;
+  }
+
+  to {
+    opacity:
+      1;
+  }
+}
+
+
+@keyframes heroSequenceBankWarmup {
+  0% {
+    opacity:
+      0;
+  }
+
+  45% {
+    opacity:
+      0.72;
+  }
+
+  100% {
+    opacity:
+      0.34;
+  }
+}
+
+
+@keyframes heroSequenceRowBoot {
+  0% {
+    opacity:
+      0;
+
+    transform:
+      translateY(4px);
+
+    filter:
+      sepia(0.8)
+      brightness(0.6);
+  }
+
+  45% {
+    opacity:
+      0.82;
+
+    filter:
+      sepia(0.45)
+      brightness(0.92);
+  }
+
+  100% {
+    opacity:
+      1;
+
+    transform:
+      translateY(0);
+
+    filter:
+      sepia(0)
+      brightness(1);
+  }
+}
+
+
+@keyframes heroSequenceLampBoot {
+  0% {
+    opacity:
+      0;
+
+    transform:
+      translateY(-50%)
+      scale(0.35);
+
+    background:
+      #5d3013;
+
+    box-shadow:
+      none;
+  }
+
+  42% {
+    opacity:
+      1;
+
+    transform:
+      translateY(-50%)
+      scale(1.35);
+
+    background:
+      #ffd69a;
+
+    box-shadow:
+      0 0 4px
+      #ffd69a,
+
+      0 0 10px
+      rgba(255, 175, 75, 0.86),
+
+      0 0 18px
+      rgba(228, 110, 22, 0.48);
+  }
+
+  100% {
+    opacity:
+      0.9;
+
+    transform:
+      translateY(-50%)
+      scale(0.86);
+
+    background:
+      var(--hero-amber-hot);
+
+    box-shadow:
+      0 0 4px
+      rgba(255, 176, 79, 0.72),
+
+      0 0 10px
+      rgba(226, 111, 24, 0.38);
+  }
+}
+
+
+/* ============================================================
+   24. TABLET
+   ============================================================ */
+
+@media (max-width: 1080px) {
+  .hero-orbital-network {
+    max-width:
+      720px;
+
+    margin:
+      0 auto;
+  }
+}
+
+
+/* ============================================================
+   25. MOBILE
+   ============================================================ */
+
+@media (max-width: 640px) {
+  .hero-orbital-network {
+    min-height:
+      475px;
+  }
+
+
+  .hero-network-topline {
+    padding:
+      0
+      13px;
+  }
+
+
+  .hero-earth-field {
+    min-height:
+      330px;
+  }
+
+
+  .hero-earth {
+    width:
+      150px;
+
+    height:
+      150px;
+  }
+
+
+  .hero-earth-glow {
+    width:
+      190px;
+
+    height:
+      190px;
+  }
+
+
+  .hero-earth-field::after {
+    width:
+      260px;
+
+    height:
+      260px;
+  }
+
+
+  .hero-orbit-one {
+    width:
+      280px;
+
+    height:
+      135px;
+  }
+
+
+  .hero-orbit-two {
+    width:
+      245px;
+
+    height:
+      180px;
+  }
+
+
+  .hero-orbit-three {
+    width:
+      180px;
+
+    height:
+      245px;
+  }
+
+
+  .hero-node-core,
+  .hero-node-logo {
+    width:
+      32px;
+
+    height:
+      32px;
+  }
+
+
+  .hero-node-logo img {
+    width:
+      23px;
+
+    height:
+      23px;
+  }
+
+
+  .hero-node small,
+  .hero-target small {
+    font-size:
+      0.28rem;
+  }
+
+
+  .hero-map-readout {
+    display:
+      none;
+  }
+
+
+  .hero-mission-sequence {
+    min-height:
+      122px;
+  }
+
+
+  .hero-sequence-header,
+  .hero-sequence-row {
+    padding:
+      0
+      13px;
+  }
+}
+
+
+/* ============================================================
+   26. TOUCH DEVICES
+   ============================================================ */
+
+@media (hover: none),
+(pointer: coarse) {
+  .hero-network-topline,
+  .hero-node small,
+  .hero-target small,
+  .hero-map-readout,
+  .hero-sequence-header,
+  .hero-sequence-row {
+    text-rendering:
+      optimizeLegibility;
+  }
+}
+
+
+/* ============================================================
+   27. REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-orbital-network,
+  .hero-orbital-network::before,
+  .hero-orbital-network::after,
+  .hero-network-topline,
+  .hero-earth-glow,
+  .hero-earth,
+  .hero-orbit,
+  .hero-node,
+  .hero-target,
+  .hero-link-stream,
+  .hero-map-readout,
+  .hero-mission-sequence,
+  .hero-mission-sequence::before,
+  .hero-sequence-row,
+  .hero-sequence-row::before,
+  .hero-sim-status i {
+    opacity:
+      1 !important;
+
+    animation:
+      none !important;
+
+    filter:
+      none !important;
+  }
+
+
+  .hero-acquisition-ring {
+    display:
+      none;
+  }
+
+
+  .hero-intercept-path {
+    opacity:
+      0.55;
+
+    transform:
+      rotate(31deg)
+      scaleX(1);
+
+    animation:
+      none !important;
+  }
+
+
+  .hero-link-stream span {
+    animation:
+      none !important;
+  }
+
+
+  .hero-node {
+    transform:
+      none;
+  }
+
+
+  .hero-earth {
+    transform:
+      translate(-50%, -50%);
+  }
+
+
+  .hero-sim-status i {
+    background:
+      var(--hero-blue);
+
+    box-shadow:
+      0 0 8px
+      rgba(121, 191, 255, 0.6);
+  }
+}
+
+/* ============================================================
+   PRELOADER SYNCHRONIZATION
+   ============================================================ */
+
+.app-shell.is-site-locked
+.hero-orbital-network,
+
+.app-shell.is-site-locked
+.hero-orbital-network::before,
+
+.app-shell.is-site-locked
+.hero-orbital-network::after,
+
+.app-shell.is-site-locked
+.hero-network-topline,
+
+.app-shell.is-site-locked
+.hero-earth-glow,
+
+.app-shell.is-site-locked
+.hero-earth,
+
+.app-shell.is-site-locked
+.hero-orbit,
+
+.app-shell.is-site-locked
+.hero-node,
+
+.app-shell.is-site-locked
+.hero-target,
+
+.app-shell.is-site-locked
+.hero-link-stream,
+
+.app-shell.is-site-locked
+.hero-map-readout,
+
+.app-shell.is-site-locked
+.hero-mission-sequence,
+
+.app-shell.is-site-locked
+.hero-mission-sequence::before,
+
+.app-shell.is-site-locked
+.hero-sequence-row,
+
+.app-shell.is-site-locked
+.hero-sequence-row::before,
+
+.app-shell.is-site-locked
+.hero-sim-status i {
+  animation-play-state:
+    paused !important;
+}

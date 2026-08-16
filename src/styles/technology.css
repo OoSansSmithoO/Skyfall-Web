@@ -1,3 +1,12 @@
+.technology-section {
+  background:
+    linear-gradient(
+      180deg,
+      var(--bg-technology),
+      #091824
+    );
+}
+
 /* ============================================================
    SKYFALL / TECHNOLOGY ECOSYSTEM
    DISTRIBUTED CAPTURE + TRANSFER ARCHITECTURE

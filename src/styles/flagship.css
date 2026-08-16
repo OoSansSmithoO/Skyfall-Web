@@ -1,3 +1,12 @@
+.flagship {
+  background:
+    linear-gradient(
+      180deg,
+      var(--bg-flagship),
+      #07131d
+    );
+}
+
 /* ============================================================
    SKYFALL / FLAGSHIP SYSTEM
    N-SERIES CAPTURE PLATFORM
