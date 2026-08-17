@@ -1,0 +1,917 @@
+/* ============================================================
+   12. STAGE ENTRY TIMING
+   ============================================================ */
+
+.mission-strip-stage:nth-child(1) {
+  animation:
+    missionStageBoot
+    850ms
+    ease
+    2.2s
+    forwards;
+}
+
+.mission-strip-stage:nth-child(2) {
+  animation:
+    missionStageBoot
+    850ms
+    ease
+    2.55s
+    forwards;
+}
+
+.mission-strip-stage:nth-child(3) {
+  animation:
+    missionStageBoot
+    850ms
+    ease
+    2.9s
+    forwards;
+}
+
+.mission-strip-stage:nth-child(4) {
+  animation:
+    missionStageBoot
+    850ms
+    ease
+    3.25s
+    forwards;
+}
+
+.mission-strip-stage:nth-child(5) {
+  animation:
+    missionStageBoot
+    850ms
+    ease
+    3.6s
+    forwards;
+}
+
+
+/* ============================================================
+   13. BULB TIMING
+   ============================================================ */
+
+.mission-strip-stage:nth-child(1)
+.mission-strip-lamp {
+  animation:
+    missionLampWarmup
+    1.3s
+    ease
+    2.05s
+    forwards;
+}
+
+.mission-strip-stage:nth-child(2)
+.mission-strip-lamp {
+  animation:
+    missionLampWarmup
+    1.3s
+    ease
+    2.4s
+    forwards;
+}
+
+.mission-strip-stage:nth-child(3)
+.mission-strip-lamp {
+  animation:
+    missionLampWarmup
+    1.3s
+    ease
+    2.75s
+    forwards;
+}
+
+.mission-strip-stage:nth-child(4)
+.mission-strip-lamp {
+  animation:
+    missionLampWarmup
+    1.3s
+    ease
+    3.1s
+    forwards;
+}
+
+.mission-strip-stage:nth-child(5)
+.mission-strip-lamp {
+  animation:
+    missionLampWarmup
+    1.3s
+    ease
+    3.45s
+    forwards;
+}
+
+
+/* ============================================================
+   14. FILAMENT TIMING
+   ============================================================ */
+
+.mission-strip-stage:nth-child(1)
+.mission-strip-lamp::after {
+  animation:
+    missionFilamentWarmup
+    1.3s
+    ease
+    2.05s
+    forwards;
+}
+
+.mission-strip-stage:nth-child(2)
+.mission-strip-lamp::after {
+  animation:
+    missionFilamentWarmup
+    1.3s
+    ease
+    2.4s
+    forwards;
+}
+
+.mission-strip-stage:nth-child(3)
+.mission-strip-lamp::after {
+  animation:
+    missionFilamentWarmup
+    1.3s
+    ease
+    2.75s
+    forwards;
+}
+
+.mission-strip-stage:nth-child(4)
+.mission-strip-lamp::after {
+  animation:
+    missionFilamentWarmup
+    1.3s
+    ease
+    3.1s
+    forwards;
+}
+
+.mission-strip-stage:nth-child(5)
+.mission-strip-lamp::after {
+  animation:
+    missionFilamentWarmup
+    1.3s
+    ease
+    3.45s
+    forwards;
+}
+
+
+/* ============================================================
+   15. LOCAL HALO TIMING
+   ============================================================ */
+
+.mission-strip-stage:nth-child(1)::before {
+  animation:
+    missionBulbGlow
+    1.6s
+    ease
+    2.05s
+    forwards;
+}
+
+.mission-strip-stage:nth-child(2)::before {
+  animation:
+    missionBulbGlow
+    1.6s
+    ease
+    2.4s
+    forwards;
+}
+
+.mission-strip-stage:nth-child(3)::before {
+  animation:
+    missionBulbGlow
+    1.6s
+    ease
+    2.75s
+    forwards;
+}
+
+.mission-strip-stage:nth-child(4)::before {
+  animation:
+    missionBulbGlow
+    1.6s
+    ease
+    3.1s
+    forwards;
+}
+
+.mission-strip-stage:nth-child(5)::before {
+  animation:
+    missionBulbGlow
+    1.6s
+    ease
+    3.45s
+    forwards;
+}
+
+
+/* ============================================================
+   16. FLASHLIGHT SWEEP TIMING
+   ============================================================ */
+
+.mission-strip-stage:nth-child(1)::after {
+  animation:
+    missionFlashlightSweep
+    700ms
+    cubic-bezier(0.16, 1, 0.3, 1)
+    2.42s
+    forwards;
+}
+
+.mission-strip-stage:nth-child(2)::after {
+  animation:
+    missionFlashlightSweep
+    700ms
+    cubic-bezier(0.16, 1, 0.3, 1)
+    2.77s
+    forwards;
+}
+
+.mission-strip-stage:nth-child(3)::after {
+  animation:
+    missionFlashlightSweep
+    700ms
+    cubic-bezier(0.16, 1, 0.3, 1)
+    3.12s
+    forwards;
+}
+
+.mission-strip-stage:nth-child(4)::after {
+  animation:
+    missionFlashlightSweep
+    700ms
+    cubic-bezier(0.16, 1, 0.3, 1)
+    3.47s
+    forwards;
+}
+
+.mission-strip-stage:nth-child(5)::after {
+  animation:
+    missionFlashlightSweep
+    700ms
+    cubic-bezier(0.16, 1, 0.3, 1)
+    3.82s
+    forwards;
+}
+
+
+/* ============================================================
+   17. TEXT POP TIMING
+   ============================================================ */
+
+.mission-strip-stage:nth-child(1)
+strong,
+.mission-strip-stage:nth-child(1)
+.mission-strip-number {
+  animation:
+    missionTextDiscovery
+    760ms
+    cubic-bezier(0.16, 1, 0.3, 1)
+    2.48s
+    forwards;
+}
+
+.mission-strip-stage:nth-child(2)
+strong,
+.mission-strip-stage:nth-child(2)
+.mission-strip-number {
+  animation:
+    missionTextDiscovery
+    760ms
+    cubic-bezier(0.16, 1, 0.3, 1)
+    2.83s
+    forwards;
+}
+
+.mission-strip-stage:nth-child(3)
+strong,
+.mission-strip-stage:nth-child(3)
+.mission-strip-number {
+  animation:
+    missionTextDiscovery
+    760ms
+    cubic-bezier(0.16, 1, 0.3, 1)
+    3.18s
+    forwards;
+}
+
+.mission-strip-stage:nth-child(4)
+strong,
+.mission-strip-stage:nth-child(4)
+.mission-strip-number {
+  animation:
+    missionTextDiscovery
+    760ms
+    cubic-bezier(0.16, 1, 0.3, 1)
+    3.53s
+    forwards;
+}
+
+.mission-strip-stage:nth-child(5)
+strong,
+.mission-strip-stage:nth-child(5)
+.mission-strip-number {
+  animation:
+    missionTextDiscovery
+    760ms
+    cubic-bezier(0.16, 1, 0.3, 1)
+    3.88s
+    forwards;
+}
+
+
+/* ============================================================
+   18. ELECTRICAL SPARK BURST
+   ============================================================ */
+
+/*
+   We reuse the stage border glow itself as the spark source.
+   This produces a brief electrical crackle around the lower-left
+   side of each stage when its bulb peaks.
+*/
+
+.mission-strip-stage {
+  --spark-delay:
+    0s;
+}
+
+
+.mission-strip-stage:nth-child(1) {
+  --spark-delay:
+    2.55s;
+}
+
+.mission-strip-stage:nth-child(2) {
+  --spark-delay:
+    2.9s;
+}
+
+.mission-strip-stage:nth-child(3) {
+  --spark-delay:
+    3.25s;
+}
+
+.mission-strip-stage:nth-child(4) {
+  --spark-delay:
+    3.6s;
+}
+
+.mission-strip-stage:nth-child(5) {
+  --spark-delay:
+    3.95s;
+}
+
+
+/* Tiny spark flare from lower-left hardware */
+
+.mission-strip-stage {
+  box-shadow:
+    inset 0 0 0
+    rgba(255, 180, 80, 0);
+}
+
+
+.mission-strip-stage:nth-child(1),
+.mission-strip-stage:nth-child(2),
+.mission-strip-stage:nth-child(3),
+.mission-strip-stage:nth-child(4),
+.mission-strip-stage:nth-child(5) {
+  animation-name:
+    missionStageBoot,
+    missionStageSpark;
+
+  animation-duration:
+    850ms,
+    420ms;
+
+  animation-timing-function:
+    ease,
+    steps(4, end);
+
+  animation-fill-mode:
+    forwards,
+    both;
+}
+
+
+.mission-strip-stage:nth-child(1) {
+  animation-delay:
+    2.2s,
+    2.55s;
+}
+
+.mission-strip-stage:nth-child(2) {
+  animation-delay:
+    2.55s,
+    2.9s;
+}
+
+.mission-strip-stage:nth-child(3) {
+  animation-delay:
+    2.9s,
+    3.25s;
+}
+
+.mission-strip-stage:nth-child(4) {
+  animation-delay:
+    3.25s,
+    3.6s;
+}
+
+.mission-strip-stage:nth-child(5) {
+  animation-delay:
+    3.6s,
+    3.95s;
+}
+
+
+/* ============================================================
+   19. RACK POWER-ON
+   ============================================================ */
+
+@keyframes missionStripPowerOn {
+  from {
+    opacity:
+      0;
+
+    transform:
+      translate3d(0, 12px, 0);
+
+    filter:
+      brightness(0.42);
+  }
+
+  to {
+    opacity:
+      1;
+
+    transform:
+      translate3d(0, 0, 0);
+
+    filter:
+      brightness(1);
+  }
+}
+
+
+/* ============================================================
+   20. STAGE TEXT REVEAL
+   ============================================================ */
+
+@keyframes missionStageBoot {
+  0% {
+    opacity:
+      0;
+
+    transform:
+      translate3d(0, 8px, 0);
+
+    filter:
+      sepia(1)
+      brightness(0.38);
+  }
+
+  34% {
+    opacity:
+      0.42;
+
+    transform:
+      translate3d(0, 3px, 0);
+
+    filter:
+      sepia(0.88)
+      brightness(0.7);
+  }
+
+  58% {
+    opacity:
+      0.88;
+
+    filter:
+      sepia(0.34)
+      brightness(1.08);
+  }
+
+  100% {
+    opacity:
+      1;
+
+    transform:
+      translate3d(0, 0, 0);
+
+    filter:
+      sepia(0)
+      brightness(1);
+  }
+}
+
+
+/* ============================================================
+   21. BULB WARMUP
+   ============================================================ */
+
+@keyframes missionLampWarmup {
+  0% {
+    opacity:
+      0;
+
+    transform:
+      scale(0.4);
+
+    filter:
+      brightness(0.35);
+  }
+
+  20% {
+    opacity:
+      0.42;
+
+    transform:
+      scale(0.72);
+
+    filter:
+      brightness(0.68);
+  }
+
+  45% {
+    opacity:
+      1;
+
+    transform:
+      scale(1.08);
+
+    filter:
+      brightness(1.4);
+
+    border-color:
+      rgba(255, 199, 125, 0.64);
+
+    box-shadow:
+      inset 0 0 7px
+      rgba(255, 210, 143, 0.2),
+
+      0 0 8px
+      rgba(255, 163, 60, 0.28);
+  }
+
+  65% {
+    transform:
+      scale(0.96);
+
+    filter:
+      brightness(1.1);
+  }
+
+  100% {
+    opacity:
+      1;
+
+    transform:
+      scale(1);
+
+    filter:
+      brightness(1);
+
+    border-color:
+      rgba(255, 194, 116, 0.4);
+
+    box-shadow:
+      inset 0 0 6px
+      rgba(255, 203, 132, 0.12),
+
+      0 0 7px
+      rgba(255, 151, 43, 0.17);
+  }
+}
+
+
+/* ============================================================
+   22. FILAMENT WARMUP
+   ============================================================ */
+
+@keyframes missionFilamentWarmup {
+  0% {
+    opacity:
+      0;
+
+    background:
+      #4e250d;
+
+    box-shadow:
+      none;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.35);
+  }
+
+  26% {
+    opacity:
+      0.5;
+
+    background:
+      #a9541d;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.68);
+  }
+
+  48% {
+    opacity:
+      1;
+
+    background:
+      #ffd492;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.18);
+
+    box-shadow:
+      0 0 3px
+      #ffd492,
+
+      0 0 8px
+      rgba(255, 170, 61, 0.98),
+
+      0 0 19px
+      rgba(229, 108, 20, 0.72);
+  }
+
+  72% {
+    background:
+      #ffb85d;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.92);
+
+    box-shadow:
+      0 0 5px
+      rgba(255, 183, 84, 0.92),
+
+      0 0 12px
+      rgba(230, 120, 28, 0.62);
+  }
+
+  100% {
+    opacity:
+      1;
+
+    background:
+      var(--skyfall-amber-hot);
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.86);
+
+    box-shadow:
+      0 0 4px
+      rgba(255, 176, 79, 0.86),
+
+      0 0 10px
+      rgba(226, 111, 24, 0.5);
+  }
+}
+
+
+/* ============================================================
+   23. LOCAL GLOW
+   ============================================================ */
+
+@keyframes missionBulbGlow {
+  0% {
+    opacity:
+      0;
+
+    transform:
+      translateY(-50%)
+      scale(0.48);
+  }
+
+  42% {
+    opacity:
+      0.98;
+
+    transform:
+      translateY(-50%)
+      scale(1.15);
+  }
+
+  100% {
+    opacity:
+      0.42;
+
+    transform:
+      translateY(-50%)
+      scale(1);
+  }
+}
+
+
+/* ============================================================
+   24. FLASHLIGHT SWEEP
+   ============================================================ */
+
+@keyframes missionFlashlightSweep {
+  0% {
+    left:
+      -45%;
+
+    opacity:
+      0;
+  }
+
+  18% {
+    opacity:
+      0.85;
+  }
+
+  55% {
+    opacity:
+      1;
+  }
+
+  100% {
+    left:
+      120%;
+
+    opacity:
+      0;
+  }
+}
+
+
+/* ============================================================
+   25. TEXT DISCOVERY POP
+   ============================================================ */
+
+@keyframes missionTextDiscovery {
+  0% {
+    color:
+      #56656e;
+
+    opacity:
+      0.5;
+
+    transform:
+      translateX(-2px)
+      scale(0.985);
+
+    filter:
+      blur(0.8px)
+      brightness(0.7);
+
+    text-shadow:
+      0 0 0
+      rgba(255, 187, 94, 0);
+  }
+
+  30% {
+    color:
+      #cfaa78;
+
+    opacity:
+      0.92;
+
+    transform:
+      translateX(0)
+      scale(1.035);
+
+    filter:
+      blur(0)
+      brightness(1.35);
+
+    text-shadow:
+      0 0 7px
+      rgba(255, 180, 85, 0.34),
+
+      0 0 15px
+      rgba(222, 111, 30, 0.18);
+  }
+
+  54% {
+    color:
+      #f3dcc0;
+
+    transform:
+      scale(1.055);
+
+    filter:
+      brightness(1.55);
+
+    text-shadow:
+      0 0 9px
+      rgba(255, 193, 109, 0.42);
+  }
+
+  76% {
+    transform:
+      scale(0.995);
+  }
+
+  100% {
+    color:
+      #becbd4;
+
+    opacity:
+      1;
+
+    transform:
+      scale(1);
+
+    filter:
+      brightness(1);
+
+    text-shadow:
+      0 0 4px
+      rgba(255, 177, 80, 0.07);
+  }
+}
+
+
+/* ============================================================
+   26. ELECTRICAL SPARK
+   ============================================================ */
+
+@keyframes missionStageSpark {
+  0%,
+  100% {
+    box-shadow:
+      inset 0 0 0
+      rgba(255, 180, 80, 0);
+  }
+
+  20% {
+    box-shadow:
+      inset 0 -1px 0
+      rgba(255, 187, 93, 0.22),
+
+      0 1px 0
+      rgba(255, 130, 36, 0.16),
+
+      -5px 8px 10px
+      rgba(255, 154, 54, 0.14);
+  }
+
+  40% {
+    box-shadow:
+      inset 0 -1px 0
+      rgba(255, 219, 160, 0.32),
+
+      0 1px 0
+      rgba(255, 151, 43, 0.2),
+
+      7px 5px 12px
+      rgba(255, 169, 70, 0.18);
+  }
+
+  60% {
+    box-shadow:
+      inset 0 -1px 0
+      rgba(255, 171, 68, 0.15),
+
+      -3px 6px 8px
+      rgba(255, 142, 39, 0.12);
+  }
+}
+
+
+/* ============================================================
+   27. FULL RACK AMBER FIELD
+   ============================================================ */
+
+@keyframes missionStripTubeBank {
+  0% {
+    opacity:
+      0;
+
+    transform:
+      scaleY(0.55);
+  }
+
+  35% {
+    opacity:
+      0.72;
+
+    transform:
+      scaleY(1.08);
+  }
+
+  58% {
+    opacity:
+      0.4;
+  }
+
+  100% {
+    opacity:
+      0.3;
+
+    transform:
+      scaleY(1);
+  }
+}

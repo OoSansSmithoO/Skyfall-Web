@@ -1,0 +1,271 @@
+/* ============================================================
+   28. HOVER / INSPECTION STATE
+   ============================================================ */
+
+.mission-strip-stage:hover {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(121, 191, 255, 0.018),
+      rgba(216, 154, 82, 0.018)
+    );
+}
+
+
+.mission-strip-stage:hover
+strong {
+  color:
+    var(--skyfall-white);
+
+  text-shadow:
+    0 0 7px
+    rgba(255, 182, 86, 0.08);
+}
+
+
+/* ============================================================
+   29. TABLET
+   ============================================================ */
+
+@media (max-width: 900px) {
+  .mission-strip {
+    width:
+      calc(100% - 36px);
+
+    overflow-x:
+      auto;
+
+    grid-template-columns:
+      repeat(5, minmax(145px, 1fr));
+
+    scrollbar-width:
+      thin;
+
+    scrollbar-color:
+      rgba(121, 191, 255, 0.2)
+      transparent;
+  }
+}
+
+
+/* ============================================================
+   30. MOBILE
+   ============================================================ */
+
+@media (max-width: 640px) {
+  .mission-strip {
+    margin-top:
+      0;
+
+    grid-template-columns:
+      1fr;
+
+    overflow:
+      visible;
+  }
+
+
+  .mission-strip-stage {
+    min-height:
+      66px;
+
+    padding:
+      14px
+      18px;
+
+    grid-template-columns:
+      18px
+      38px
+      1fr;
+
+    grid-template-rows:
+      1fr;
+
+    align-items:
+      center;
+
+    border-right:
+      0;
+
+    border-bottom:
+      1px solid
+      rgba(121, 191, 255, 0.09);
+  }
+
+
+  .mission-strip-stage:last-child {
+    border-bottom:
+      0;
+  }
+
+
+  .mission-strip-lamp {
+    grid-column:
+      1;
+
+    grid-row:
+      1;
+  }
+
+
+  .mission-strip-number {
+    grid-column:
+      2;
+
+    grid-row:
+      1;
+  }
+
+
+  .mission-strip-stage strong {
+    grid-column:
+      3;
+
+    grid-row:
+      1;
+  }
+
+
+  .mission-strip-stage::before {
+    left:
+      -6px;
+
+    width:
+      78px;
+
+    height:
+      58px;
+  }
+}
+
+
+/* ============================================================
+   31. TOUCH DEVICES
+   ============================================================ */
+
+@media (hover: none),
+(pointer: coarse) {
+  .mission-strip-stage strong {
+    color:
+      rgba(225, 234, 240, 0.92);
+  }
+
+
+  .mission-strip-number {
+    color:
+      rgba(132, 155, 170, 0.78);
+  }
+
+
+  .mission-strip-lamp {
+    border-color:
+      rgba(255, 194, 116, 0.46);
+  }
+}
+
+
+/* ============================================================
+   32. REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .mission-strip,
+  .mission-strip-stage,
+  .mission-strip-lamp,
+  .mission-strip-lamp::after,
+  .mission-strip-stage::before,
+  .mission-strip-stage::after,
+  .mission-strip-number,
+  .mission-strip-stage strong {
+    opacity:
+      1 !important;
+
+    transform:
+      none !important;
+
+    filter:
+      none !important;
+
+    animation:
+      none !important;
+
+    transition:
+      none !important;
+  }
+
+
+  .mission-strip-lamp::after {
+    background:
+      var(--skyfall-amber-hot);
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.86) !important;
+
+    box-shadow:
+      0 0 4px
+      rgba(255, 176, 79, 0.82),
+
+      0 0 10px
+      rgba(226, 111, 24, 0.48);
+  }
+
+
+  .mission-strip-stage::before {
+    opacity:
+      0.4 !important;
+
+    transform:
+      translateY(-50%)
+      scale(1) !important;
+  }
+
+
+  .mission-strip-stage::after {
+    display:
+      none;
+  }
+
+
+  .mission-strip::before {
+    opacity:
+      0.24;
+
+    animation:
+      none !important;
+  }
+}
+
+/* ============================================================
+   PRELOADER SYNCHRONIZATION
+   ============================================================ */
+
+.app-shell.is-site-locked
+.mission-strip,
+
+.app-shell.is-site-locked
+.mission-strip::before,
+
+.app-shell.is-site-locked
+.mission-strip-stage,
+
+.app-shell.is-site-locked
+.mission-strip-stage::before,
+
+.app-shell.is-site-locked
+.mission-strip-stage::after,
+
+.app-shell.is-site-locked
+.mission-strip-lamp,
+
+.app-shell.is-site-locked
+.mission-strip-lamp::after,
+
+.app-shell.is-site-locked
+.mission-strip-number,
+
+.app-shell.is-site-locked
+.mission-strip-stage strong {
+  animation-play-state:
+    paused !important;
+}

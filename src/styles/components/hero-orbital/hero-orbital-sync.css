@@ -1,0 +1,54 @@
+/* ============================================================
+   PRELOADER SYNCHRONIZATION
+   ============================================================ */
+
+.app-shell.is-site-locked
+.hero-orbital-network,
+
+.app-shell.is-site-locked
+.hero-orbital-network::before,
+
+.app-shell.is-site-locked
+.hero-orbital-network::after,
+
+.app-shell.is-site-locked
+.hero-network-topline,
+
+.app-shell.is-site-locked
+.hero-earth-glow,
+
+.app-shell.is-site-locked
+.hero-earth,
+
+.app-shell.is-site-locked
+.hero-orbit,
+
+.app-shell.is-site-locked
+.hero-node,
+
+.app-shell.is-site-locked
+.hero-target,
+
+.app-shell.is-site-locked
+.hero-link-stream,
+
+.app-shell.is-site-locked
+.hero-map-readout,
+
+.app-shell.is-site-locked
+.hero-mission-sequence,
+
+.app-shell.is-site-locked
+.hero-mission-sequence::before,
+
+.app-shell.is-site-locked
+.hero-sequence-row,
+
+.app-shell.is-site-locked
+.hero-sequence-row::before,
+
+.app-shell.is-site-locked
+.hero-sim-status i {
+  animation-play-state:
+    paused !important;
+}

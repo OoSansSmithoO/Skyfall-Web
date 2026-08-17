@@ -3,21 +3,21 @@ import {
   useState,
 } from 'react'
 
-import PreloaderGate from './components/PreloaderGate'
+import PreloaderGate from './components/system/PreloaderGate'
 
-import Header from './components/Header'
-import Hero from './components/Hero'
-import MissionStrip from './components/MissionStrip'
-import FlagshipSection from './components/FlagshipSection'
-import TechnologySection from './components/TechnologySection'
-import IndustriesSection from './components/IndustriesSection'
-import MissionsSection from './components/MissionsSection'
-import CapabilitiesSection from './components/CapabilitiesSection'
-import ProductsSection from './components/ProductsSection'
-import ResearchSection from './components/ResearchSection'
-import CompanySection from './components/CompanySection'
-import ContactSection from './components/ContactSection'
-import Footer from './components/Footer'
+import Header from './components/layout/Header'
+import Hero from './components/hero/Hero'
+import MissionStrip from './components/sections/MissionStrip'
+import FlagshipSection from './components/sections/FlagshipSection'
+import TechnologySection from './components/sections/TechnologySection'
+import IndustriesSection from './components/sections/IndustriesSection'
+import MissionsSection from './components/sections/MissionsSection'
+import CapabilitiesSection from './components/sections/CapabilitiesSection'
+import ProductsSection from './components/sections/ProductsSection'
+import ResearchSection from './components/sections/ResearchSection'
+import CompanySection from './components/sections/CompanySection'
+import ContactSection from './components/sections/ContactSection'
+import Footer from './components/layout/Footer'
 
 function App() {
   const [siteReady, setSiteReady] =

@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="520" viewBox="0 0 1600 520" role="img" aria-labelledby="title desc">
+  <title id="title">Skyfall N Series CLEANS mission banner</title>
+  <desc id="desc">A restrained aerospace banner showing a compact small-spacecraft core expanding into an orbital operations architecture above Earth's limb.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#030609"/>
+      <stop offset="55%" stop-color="#071018"/>
+      <stop offset="100%" stop-color="#020406"/>
+    </linearGradient>
+
+    <radialGradient id="earthGlow" cx="50%" cy="0%" r="95%">
+      <stop offset="0%" stop-color="#6aa7c8" stop-opacity="0.88"/>
+      <stop offset="28%" stop-color="#24435a" stop-opacity="0.52"/>
+      <stop offset="72%" stop-color="#07131d" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#020406" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8c6b27"/>
+      <stop offset="50%" stop-color="#d8b55b"/>
+      <stop offset="100%" stop-color="#9b7a31"/>
+    </linearGradient>
+
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#34495c"/>
+      <stop offset="50%" stop-color="#1d2c38"/>
+      <stop offset="100%" stop-color="#0e171f"/>
+    </linearGradient>
+
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#7aa3b7" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- background -->
+  <rect width="1600" height="520" fill="url(#bg)"/>
+  <rect width="1600" height="520" fill="url(#grid)"/>
+
+  <!-- sparse star field -->
+  <g fill="#d9e6ec" opacity="0.75">
+    <circle cx="110" cy="86" r="1.2"/><circle cx="250" cy="120" r="1"/>
+    <circle cx="405" cy="70" r="1.1"/><circle cx="575" cy="104" r="0.9"/>
+    <circle cx="740" cy="58" r="1.2"/><circle cx="905" cy="118" r="1"/>
+    <circle cx="1090" cy="72" r="1.1"/><circle cx="1250" cy="126" r="0.9"/>
+    <circle cx="1450" cy="84" r="1.3"/><circle cx="1510" cy="160" r="0.8"/>
+    <circle cx="320" cy="196" r="0.8"/><circle cx="1180" cy="205" r="0.9"/>
+  </g>
+
+  <!-- Earth limb -->
+  <ellipse cx="800" cy="650" rx="1120" ry="330" fill="url(#earthGlow)"/>
+  <path d="M-120,462 Q800,340 1720,462" fill="none" stroke="#6ba2bd" stroke-opacity="0.34" stroke-width="2"/>
+  <path d="M-120,468 Q800,352 1720,468" fill="none" stroke="#d8edf6" stroke-opacity="0.14" stroke-width="1"/>
+
+  <!-- heading -->
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="84" y="90" fill="#f3f6f7" font-size="54" font-weight="700" letter-spacing="8">SKYFALL</text>
+    <text x="88" y="132" fill="#d8b55b" font-size="18" font-weight="700" letter-spacing="5">N SERIES · CLEANS</text>
+    <text x="88" y="182" fill="#c9d1d6" font-size="20" letter-spacing="1.5">AUTONOMOUS SPACECRAFT · ORBITAL ROBOTICS · ADVANCED SPACE SYSTEMS</text>
+  </g>
+
+  <!-- divider -->
+  <line x1="88" y1="215" x2="660" y2="215" stroke="url(#gold)" stroke-width="2"/>
+  <text x="88" y="248" fill="#98a8b0" font-family="monospace" font-size="15" letter-spacing="2">COMPACT AT LAUNCH  →  CAPABLE ON ORBIT</text>
+
+  <!-- Mission steps left -->
+  <g font-family="monospace" font-size="14">
+    <g fill="#b9c6cc">
+      <text x="92" y="318">01  DETECT</text>
+      <text x="92" y="346">02  CHARACTERIZE</text>
+      <text x="92" y="374">03  NAVIGATE</text>
+      <text x="92" y="402">04  RENDEZVOUS</text>
+    </g>
+    <g fill="#d8b55b">
+      <text x="310" y="318">05  PROXIMITY OPS</text>
+      <text x="310" y="346">06  INTERACT</text>
+      <text x="310" y="374">07  STABILIZE</text>
+      <text x="310" y="402">08  SERVICE / TRANSFER</text>
+    </g>
+  </g>
+
+  <!-- expansion line -->
+  <g stroke="#b6974c" stroke-width="2" fill="none">
+    <path d="M760 274 C850 245 930 245 1010 270"/>
+    <path d="M1010 270 C1090 290 1150 292 1224 274"/>
+  </g>
+  <g fill="#d8b55b">
+    <circle cx="760" cy="274" r="4"/>
+    <circle cx="1010" cy="270" r="4"/>
+    <circle cx="1224" cy="274" r="4"/>
+  </g>
+
+  <!-- compact 3U-ish smallsat core -->
+  <g transform="translate(685 205)">
+    <rect x="0" y="0" width="120" height="210" rx="8" fill="#0f171e" stroke="#b5c0c5" stroke-width="2"/>
+    <rect x="14" y="14" width="92" height="54" rx="4" fill="url(#panel)" stroke="#425b6c"/>
+    <rect x="14" y="80" width="92" height="54" rx="4" fill="url(#panel)" stroke="#425b6c"/>
+    <rect x="14" y="146" width="92" height="50" rx="4" fill="url(#panel)" stroke="#425b6c"/>
+    <line x1="8" y1="0" x2="8" y2="210" stroke="#d8b55b" stroke-width="2"/>
+    <line x1="112" y1="0" x2="112" y2="210" stroke="#d8b55b" stroke-width="2"/>
+    <circle cx="60" cy="42" r="13" fill="#081018" stroke="#7fa6b8"/>
+    <circle cx="60" cy="42" r="5" fill="#d8b55b"/>
+    <text x="60" y="231" text-anchor="middle" fill="#9bacb4" font-family="monospace" font-size="13">STOWED CORE</text>
+  </g>
+
+  <!-- deployed vehicle -->
+  <g transform="translate(1010 210)">
+    <!-- central bus -->
+    <rect x="0" y="42" width="148" height="120" rx="8" fill="#0f171e" stroke="#bcc7cb" stroke-width="2"/>
+    <rect x="18" y="60" width="112" height="84" rx="6" fill="url(#panel)" stroke="#425b6c"/>
+    <circle cx="74" cy="102" r="21" fill="#081018" stroke="#7fa6b8" stroke-width="2"/>
+    <circle cx="74" cy="102" r="7" fill="#d8b55b" filter="url(#softGlow)"/>
+
+    <!-- solar panels -->
+    <g stroke="#5c7b8c" stroke-width="1.2">
+      <rect x="-205" y="64" width="185" height="78" rx="2" fill="#142536"/>
+      <line x1="-159" y1="64" x2="-159" y2="142"/>
+      <line x1="-113" y1="64" x2="-113" y2="142"/>
+      <line x1="-67" y1="64" x2="-67" y2="142"/>
+      <line x1="-205" y1="103" x2="-20" y2="103"/>
+
+      <rect x="168" y="64" width="185" height="78" rx="2" fill="#142536"/>
+      <line x1="214" y1="64" x2="214" y2="142"/>
+      <line x1="260" y1="64" x2="260" y2="142"/>
+      <line x1="306" y1="64" x2="306" y2="142"/>
+      <line x1="168" y1="103" x2="353" y2="103"/>
+    </g>
+
+    <!-- booms / orbital interaction envelope -->
+    <g stroke="#d8b55b" stroke-width="2" fill="none" opacity="0.95">
+      <path d="M35 42 L-15 -4 L-76 -30"/>
+      <path d="M113 42 L163 -4 L224 -30"/>
+      <path d="M35 162 L-15 208 L-76 234"/>
+      <path d="M113 162 L163 208 L224 234"/>
+      <path d="M74 42 L74 -42"/>
+    </g>
+
+    <g fill="#d8b55b" filter="url(#softGlow)">
+      <circle cx="-76" cy="-30" r="4"/>
+      <circle cx="224" cy="-30" r="4"/>
+      <circle cx="-76" cy="234" r="4"/>
+      <circle cx="224" cy="234" r="4"/>
+      <circle cx="74" cy="-42" r="4"/>
+    </g>
+
+    <text x="74" y="196" text-anchor="middle" fill="#d8b55b" font-family="monospace" font-size="13">DEPLOYED ORBITAL SYSTEM</text>
+  </g>
+
+  <!-- labels -->
+  <g font-family="monospace" font-size="12" fill="#8fa0a8">
+    <text x="700" y="448">STANDARDIZED LAUNCH ENVELOPE</text>
+    <text x="1085" y="448">EXPANDED MISSION CAPABILITY</text>
+  </g>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="1275" y="95" fill="#f3f6f7" font-size="15" font-weight="700" letter-spacing="2">PUBLIC PROGRAM VIEW</text>
+    <text x="1275" y="121" fill="#8fa0a8" font-size="13">HIGH-LEVEL ARCHITECTURE</text>
+  </g>
+</svg>

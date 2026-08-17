@@ -1,0 +1,565 @@
+/* ============================================================
+   04. TOP STATUS BAR
+   ============================================================ */
+
+.hero-network-topline {
+  position:
+    relative;
+
+  z-index:
+    8;
+
+  min-height:
+    44px;
+
+  padding:
+    0
+    17px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  border-bottom:
+    1px solid
+    var(--skyfall-border);
+
+  color:
+    #6d8799;
+
+  font-size:
+    0.42rem;
+
+  letter-spacing:
+    0.12em;
+
+  opacity:
+    0;
+
+  transform:
+    translateY(-5px);
+
+  animation:
+    heroElementOnline
+      540ms
+      ease
+      500ms
+      forwards;
+}
+
+
+.hero-sim-status {
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  gap:
+    7px;
+}
+
+
+.hero-sim-status i {
+  width:
+    5px;
+
+  height:
+    5px;
+
+  display:
+    inline-block;
+
+  border-radius:
+    50%;
+
+  background:
+    #5e3012;
+
+  opacity:
+    0;
+
+  animation:
+    heroSimulationLampBoot
+      1.4s
+      ease
+      760ms
+      forwards,
+
+    heroSimulationLampIdle
+      2.8s
+      ease-in-out
+      2.3s
+      infinite;
+}
+
+
+/* ============================================================
+   05. EARTH FIELD
+   ============================================================ */
+
+.hero-earth-field {
+  position:
+    relative;
+
+  min-height:
+    390px;
+
+  overflow:
+    hidden;
+
+  isolation:
+    isolate;
+}
+
+
+/* Cool shield around Earth */
+
+.hero-earth-field::after {
+  content: "";
+
+  position:
+    absolute;
+
+  z-index:
+    1;
+
+  left:
+    50%;
+
+  top:
+    49%;
+
+  width:
+    340px;
+
+  height:
+    340px;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius:
+    50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(2, 8, 14, 0.12) 0%,
+      rgba(2, 8, 14, 0.34) 42%,
+      rgba(2, 8, 14, 0.11) 61%,
+      transparent 76%
+    );
+
+  pointer-events:
+    none;
+}
+
+
+/* ============================================================
+   06. EARTH GLOW
+   ============================================================ */
+
+.hero-earth-glow {
+  position:
+    absolute;
+
+  z-index:
+    1;
+
+  left:
+    50%;
+
+  top:
+    49%;
+
+  width:
+    235px;
+
+  height:
+    235px;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius:
+    50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(121, 191, 255, 0.14),
+      rgba(121, 191, 255, 0.04) 42%,
+      transparent 70%
+    );
+
+  filter:
+    blur(16px);
+
+  opacity:
+    0;
+
+  animation:
+    heroElementOnline
+      760ms
+      ease
+      720ms
+      forwards;
+}
+
+
+/* ============================================================
+   07. EARTH
+   ============================================================ */
+
+.hero-earth {
+  position:
+    absolute;
+
+  z-index:
+    5;
+
+  left:
+    50%;
+
+  top:
+    49%;
+
+  width:
+    188px;
+
+  height:
+    188px;
+
+  transform:
+    translate(-50%, -50%);
+
+  overflow:
+    hidden;
+
+  border:
+    1px solid
+    rgba(121, 191, 255, 0.18);
+
+  border-radius:
+    50%;
+
+  background:
+    radial-gradient(
+      circle at 35% 32%,
+      #0f2d42,
+      #07131f 48%,
+      #02070c 78%
+    );
+
+  opacity:
+    0;
+
+  filter:
+    sepia(0.72)
+    brightness(0.72);
+
+  box-shadow:
+    inset -32px -18px 44px
+    rgba(0, 0, 0, 0.72),
+
+    0 0 26px
+    rgba(121, 191, 255, 0.04);
+
+  animation:
+    heroEarthBoot
+      1.05s
+      ease
+      820ms
+      forwards;
+}
+
+
+/* ============================================================
+   08. EARTH GRID
+   ============================================================ */
+
+.hero-earth-grid {
+  position:
+    absolute;
+
+  inset:
+    8%;
+
+  border:
+    1px solid
+    rgba(121, 191, 255, 0.08);
+
+  border-radius:
+    50%;
+}
+
+
+.hero-earth-grid-a {
+  transform:
+    scaleX(0.42);
+}
+
+
+.hero-earth-grid-b {
+  transform:
+    rotate(90deg)
+    scaleX(0.42);
+}
+
+
+.hero-earth-grid-c {
+  transform:
+    rotate(28deg)
+    scaleY(0.5);
+}
+
+
+/* ============================================================
+   09. STYLIZED LAND MASSES
+   ============================================================ */
+
+.hero-land {
+  position:
+    absolute;
+
+  border:
+    1px solid
+    rgba(121, 191, 255, 0.23);
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(121, 191, 255, 0.018);
+}
+
+
+.land-one {
+  left:
+    31%;
+
+  top:
+    26%;
+
+  width:
+    39px;
+
+  height:
+    32px;
+
+  transform:
+    rotate(-18deg);
+}
+
+
+.land-two {
+  left:
+    51%;
+
+  top:
+    37%;
+
+  width:
+    47px;
+
+  height:
+    30px;
+
+  transform:
+    rotate(12deg);
+}
+
+
+.land-three {
+  left:
+    59%;
+
+  top:
+    68%;
+
+  width:
+    32px;
+
+  height:
+    17px;
+
+  transform:
+    rotate(-14deg);
+}
+
+
+.hero-earth-shadow {
+  position:
+    absolute;
+
+  inset:
+    0;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent 30%,
+      rgba(0, 0, 0, 0.12) 48%,
+      rgba(0, 0, 0, 0.68) 82%
+    );
+}
+
+
+/* ============================================================
+   10. POLAR GROUND STATION
+   ============================================================ */
+
+.hero-ground-station {
+  position:
+    absolute;
+
+  z-index:
+    3;
+
+  left:
+    29%;
+
+  top:
+    17%;
+}
+
+
+.hero-ground-dot {
+  width:
+    5px;
+
+  height:
+    5px;
+
+  display:
+    block;
+
+  border-radius:
+    50%;
+
+  background:
+    var(--hero-blue);
+
+  box-shadow:
+    0 0 8px
+    rgba(121, 191, 255, 0.68);
+}
+
+
+.hero-ground-label {
+  position:
+    absolute;
+
+  left:
+    9px;
+
+  top:
+    -4px;
+
+  width:
+    max-content;
+
+  color:
+    rgba(121, 191, 255, 0.6);
+
+  font-size:
+    0.31rem;
+
+  letter-spacing:
+    0.08em;
+}
+
+
+/* ============================================================
+   11. ORBIT PATHS
+   ============================================================ */
+
+.hero-orbit {
+  position:
+    absolute;
+
+  z-index:
+    2;
+
+  left:
+    50%;
+
+  top:
+    49%;
+
+  border:
+    1px solid
+    rgba(121, 191, 255, 0.12);
+
+  border-radius:
+    50%;
+
+  opacity:
+    0;
+}
+
+
+.hero-orbit-one {
+  width:
+    360px;
+
+  height:
+    165px;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-14deg);
+
+  animation:
+    heroOrbitBootOne
+      700ms
+      ease
+      1.03s
+      forwards;
+}
+
+
+.hero-orbit-two {
+  width:
+    315px;
+
+  height:
+    230px;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(28deg);
+
+  animation:
+    heroOrbitBootTwo
+      700ms
+      ease
+      1.16s
+      forwards;
+}
+
+
+.hero-orbit-three {
+  width:
+    225px;
+
+  height:
+    320px;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-7deg);
+
+  animation:
+    heroOrbitBootThree
+      700ms
+      ease
+      1.28s
+      forwards;
+}

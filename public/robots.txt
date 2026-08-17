@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://https://skyfallspace.com/sitemap.xml
+Sitemap: https://oosanssmithoo.github.io/Skyfall-Web/sitemap.xml

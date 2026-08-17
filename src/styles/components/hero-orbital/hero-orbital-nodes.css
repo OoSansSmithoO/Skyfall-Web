@@ -1,0 +1,851 @@
+/* ============================================================
+   12. SPACECRAFT NODES
+   ============================================================ */
+
+.hero-node {
+  position:
+    absolute;
+
+  z-index:
+    8;
+
+  display:
+    grid;
+
+  justify-items:
+    center;
+
+  gap:
+    7px;
+
+  opacity:
+    0;
+
+  transform:
+    translateY(6px)
+    scale(0.84);
+
+  animation:
+    heroNodeOnline
+      680ms
+      cubic-bezier(0.16, 1, 0.3, 1)
+      forwards;
+}
+
+
+.hero-node-one {
+  left:
+    16%;
+
+  top:
+    47%;
+
+  animation-delay:
+    1.55s;
+}
+
+
+.hero-node-two {
+  right:
+    12%;
+
+  top:
+    22%;
+
+  animation-delay:
+    1.75s;
+}
+
+
+.hero-node-three {
+  right:
+    17%;
+
+  bottom:
+    12%;
+
+  animation-delay:
+    1.95s;
+}
+
+
+.hero-node-four {
+  left:
+    47%;
+
+  top:
+    10%;
+
+  animation-delay:
+    1.35s;
+}
+
+
+/* ============================================================
+   13. NODE CORE
+   ============================================================ */
+
+.hero-node-core,
+.hero-node-logo {
+  width:
+    39px;
+
+  height:
+    39px;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  transform:
+    rotate(45deg);
+
+  border:
+    1px solid
+    rgba(121, 191, 255, 0.42);
+
+  background:
+    rgba(3, 8, 12, 0.9);
+
+  color:
+    #8ec9f6;
+
+  font-size:
+    0.42rem;
+
+  box-shadow:
+    0 0 10px
+    rgba(121, 191, 255, 0.03);
+}
+
+
+.hero-node-core {
+  font-family:
+    "Cascadia Code",
+    Consolas,
+    monospace;
+
+  line-height:
+    1;
+}
+
+
+.hero-node-core span {
+  display:
+    block;
+
+  transform:
+    rotate(-45deg);
+}
+
+
+.hero-node-logo img {
+  width:
+    28px;
+
+  height:
+    28px;
+
+  object-fit:
+    contain;
+
+  transform:
+    rotate(-45deg);
+
+  filter:
+    brightness(1.05);
+}
+
+
+.hero-node small {
+  color:
+    #627d90;
+
+  font-size:
+    0.31rem;
+
+  letter-spacing:
+    0.09em;
+}
+
+
+/* ============================================================
+   14. SKYFALL NODE EMPHASIS
+   ============================================================ */
+
+.hero-node-four
+.hero-node-logo {
+  border-color:
+    rgba(121, 191, 255, 0.82);
+
+  box-shadow:
+    0 0 6px
+    rgba(121, 191, 255, 0.28),
+
+    0 0 18px
+    rgba(121, 191, 255, 0.1);
+}
+
+
+.hero-node-four small {
+  color:
+    #93aec0;
+}
+
+
+/* ============================================================
+   15. TARGET
+   ============================================================ */
+
+.hero-target {
+  position:
+    absolute;
+
+  z-index:
+    8;
+
+  right:
+    25%;
+
+  top:
+    38%;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    7px;
+
+  opacity:
+    0;
+
+  animation:
+    heroTargetOnline
+      640ms
+      ease
+      2.1s
+      forwards;
+}
+
+
+.hero-target > span {
+  width:
+    8px;
+
+  height:
+    8px;
+
+  transform:
+    rotate(45deg);
+
+  border:
+    1px solid
+    rgba(217, 222, 226, 0.56);
+}
+
+
+.hero-target small {
+  color:
+    #8a9da9;
+
+  font-size:
+    0.31rem;
+
+  letter-spacing:
+    0.08em;
+}
+
+
+/* ============================================================
+   16. ACQUISITION RINGS
+   ============================================================ */
+
+.hero-acquisition-ring {
+  position:
+    absolute;
+
+  z-index:
+    3;
+
+  left:
+    57%;
+
+  top:
+    53%;
+
+  border:
+    1px dashed
+    rgba(121, 191, 255, 0.18);
+
+  border-radius:
+    50%;
+
+  opacity:
+    0;
+}
+
+
+.ring-one {
+  width:
+    74px;
+
+  height:
+    74px;
+
+  animation:
+    heroAcquisitionPulse
+      2.4s
+      ease-out
+      2.15s
+      infinite;
+}
+
+
+.ring-two {
+  width:
+    100px;
+
+  height:
+    100px;
+
+  transform:
+    translate(-13px, -13px);
+
+  animation:
+    heroAcquisitionPulse
+      2.4s
+      ease-out
+      2.65s
+      infinite;
+}
+
+
+/* ============================================================
+   17. INTERCEPT PATH
+   ============================================================ */
+
+.hero-intercept-path {
+  position:
+    absolute;
+
+  z-index:
+    3;
+
+  left:
+    55%;
+
+  top:
+    46%;
+
+  width:
+    120px;
+
+  height:
+    1px;
+
+  transform:
+    rotate(31deg)
+    scaleX(0);
+
+  transform-origin:
+    left center;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(121, 191, 255, 0.52),
+      rgba(121, 191, 255, 0.08)
+    );
+
+  opacity:
+    0;
+
+  animation:
+    heroPathOnline
+      900ms
+      ease
+      2.7s
+      forwards;
+}
+
+
+/* ============================================================
+   18. DATA STREAM
+   ============================================================ */
+
+.hero-link-stream {
+  position:
+    absolute;
+
+  z-index:
+    4;
+
+  left:
+    34%;
+
+  top:
+    23%;
+
+  width:
+    132px;
+
+  height:
+    76px;
+
+  transform:
+    rotate(56deg);
+
+  opacity:
+    0;
+
+  animation:
+    heroDataOnline
+      700ms
+      ease
+      2.25s
+      forwards;
+}
+
+
+.hero-link-stream span {
+  position:
+    absolute;
+
+  left:
+    0;
+
+  color:
+    rgba(121, 191, 255, 0.16);
+
+  font-family:
+    "Cascadia Code",
+    Consolas,
+    monospace;
+
+  font-size:
+    0.31rem;
+
+  letter-spacing:
+    0.07em;
+
+  animation:
+    heroDataPacket
+      4.6s
+      linear
+      infinite;
+}
+
+
+.hero-link-stream span:nth-child(1) {
+  top:
+    5px;
+}
+
+
+.hero-link-stream span:nth-child(2) {
+  top:
+    23px;
+
+  animation-delay:
+    -1.2s;
+}
+
+
+.hero-link-stream span:nth-child(3) {
+  top:
+    41px;
+
+  animation-delay:
+    -2.4s;
+}
+
+
+.hero-link-stream span:nth-child(4) {
+  top:
+    59px;
+
+  animation-delay:
+    -3.4s;
+}
+
+
+/* ============================================================
+   19. MAP READOUT
+   ============================================================ */
+
+.hero-map-readout {
+  position:
+    absolute;
+
+  z-index:
+    8;
+
+  left:
+    17px;
+
+  bottom:
+    16px;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    auto auto;
+
+  gap:
+    5px
+    14px;
+
+  color:
+    #60798b;
+
+  font-size:
+    0.36rem;
+
+  letter-spacing:
+    0.1em;
+
+  opacity:
+    0;
+
+  animation:
+    heroTelemetryBoot
+      700ms
+      steps(5, end)
+      1.85s
+      forwards;
+}
+
+
+.hero-map-readout strong {
+  color:
+    #91aabd;
+
+  font-weight:
+    500;
+}
+
+
+/* ============================================================
+   20. MISSION SEQUENCE
+   ============================================================ */
+
+.hero-mission-sequence {
+  position:
+    relative;
+
+  z-index:
+    6;
+
+  min-height:
+    126px;
+
+  border-top:
+    1px solid
+    var(--skyfall-border);
+
+  opacity:
+    0;
+
+  animation:
+    heroTelemetryBoot
+      700ms
+      steps(5, end)
+      2s
+      forwards;
+}
+
+
+/* Localized amber tube bank */
+
+.hero-mission-sequence::before {
+  content: "";
+
+  position:
+    absolute;
+
+  z-index:
+    -1;
+
+  inset:
+    0;
+
+  pointer-events:
+    none;
+
+  background:
+    radial-gradient(
+      ellipse at 10% 90%,
+      rgba(255, 181, 80, 0.42),
+      transparent 42%
+    ),
+
+    radial-gradient(
+      ellipse at 32% 90%,
+      rgba(255, 187, 89, 0.32),
+      transparent 42%
+    ),
+
+    radial-gradient(
+      ellipse at 55% 90%,
+      rgba(255, 169, 66, 0.29),
+      transparent 42%
+    ),
+
+    radial-gradient(
+      ellipse at 78% 90%,
+      rgba(255, 182, 82, 0.33),
+      transparent 42%
+    ),
+
+    radial-gradient(
+      ellipse at 96% 90%,
+      rgba(255, 173, 70, 0.38),
+      transparent 42%
+    );
+
+  filter:
+    blur(13px);
+
+  opacity:
+    0;
+
+  animation:
+    heroSequenceBankWarmup
+      2.4s
+      ease
+      1.7s
+      forwards;
+}
+
+
+/* ============================================================
+   21. SEQUENCE ROWS
+   ============================================================ */
+
+.hero-sequence-header,
+.hero-sequence-row {
+  min-height:
+    21px;
+
+  padding:
+    0
+    18px;
+
+  display:
+    grid;
+
+  align-items:
+    center;
+
+  border-bottom:
+    1px solid
+    rgba(121, 191, 255, 0.05);
+}
+
+
+.hero-sequence-header {
+  grid-template-columns:
+    1fr auto;
+
+  color:
+    #6c8495;
+
+  font-size:
+    0.38rem;
+
+  letter-spacing:
+    0.11em;
+}
+
+
+.hero-sequence-row {
+  position:
+    relative;
+
+  grid-template-columns:
+    36px
+    1fr
+    auto;
+
+  color:
+    #708795;
+
+  font-size:
+    0.38rem;
+
+  letter-spacing:
+    0.09em;
+
+  opacity:
+    0;
+
+  transform:
+    translateY(4px);
+}
+
+
+.hero-sequence-row::before {
+  content: "";
+
+  position:
+    absolute;
+
+  left:
+    7px;
+
+  top:
+    50%;
+
+  width:
+    4px;
+
+  height:
+    4px;
+
+  transform:
+    translateY(-50%)
+    scale(0.4);
+
+  border-radius:
+    50%;
+
+  background:
+    #7b4018;
+
+  opacity:
+    0;
+}
+
+
+.hero-sequence-row > span {
+  color:
+    var(--hero-amber);
+}
+
+
+.hero-sequence-row strong {
+  color:
+    #aabac5;
+
+  font-weight:
+    500;
+}
+
+
+.hero-sequence-row small {
+  color:
+    #617987;
+
+  font-size:
+    0.34rem;
+}
+
+
+/* ============================================================
+   22. SEQUENTIAL ROW BOOT
+   ============================================================ */
+
+.sequence-detect {
+  animation:
+    heroSequenceRowBoot
+      820ms
+      ease
+      2.25s
+      forwards;
+}
+
+
+.sequence-detect::before {
+  animation:
+    heroSequenceLampBoot
+      1.05s
+      ease
+      2.1s
+      forwards;
+}
+
+
+.sequence-approach {
+  animation:
+    heroSequenceRowBoot
+      820ms
+      ease
+      2.58s
+      forwards;
+}
+
+
+.sequence-approach::before {
+  animation:
+    heroSequenceLampBoot
+      1.05s
+      ease
+      2.43s
+      forwards;
+}
+
+
+.sequence-capture {
+  animation:
+    heroSequenceRowBoot
+      820ms
+      ease
+      2.91s
+      forwards;
+}
+
+
+.sequence-capture::before {
+  animation:
+    heroSequenceLampBoot
+      1.05s
+      ease
+      2.76s
+      forwards;
+}
+
+
+.sequence-stabilize {
+  animation:
+    heroSequenceRowBoot
+      820ms
+      ease
+      3.24s
+      forwards;
+}
+
+
+.sequence-stabilize::before {
+  animation:
+    heroSequenceLampBoot
+      1.05s
+      ease
+      3.09s
+      forwards;
+}
+
+
+.sequence-recover {
+  animation:
+    heroSequenceRowBoot
+      820ms
+      ease
+      3.57s
+      forwards;
+}
+
+
+.sequence-recover::before {
+  animation:
+    heroSequenceLampBoot
+      1.05s
+      ease
+      3.42s
+      forwards;
+}

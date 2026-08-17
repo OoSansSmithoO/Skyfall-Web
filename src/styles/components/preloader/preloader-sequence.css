@@ -1,0 +1,291 @@
+/* ============================================================
+   17. ENTRY STATUS
+   ============================================================ */
+
+.gate-entry-status {
+  position: absolute;
+
+  z-index: 39;
+
+  left: 50%;
+
+  top:
+    calc(50% + 185px);
+
+  transform:
+    translateX(-50%);
+
+  display: grid;
+
+  justify-items: center;
+
+  gap: 8px;
+
+  pointer-events: none;
+}
+
+
+.gate-access-granted {
+  color:
+    rgba(255, 193, 109, 0.9);
+
+  font-family:
+    "Cascadia Code",
+    Consolas,
+    monospace;
+
+  font-size:
+    0.46rem;
+
+  letter-spacing:
+    0.16em;
+
+  opacity: 0;
+}
+
+
+.preloader-gate.is-authorized
+.gate-access-granted,
+.preloader-gate.is-open
+.gate-access-granted {
+  animation:
+    gateAccessGranted
+    1.55s
+    steps(6, end)
+    forwards;
+}
+
+
+/* ============================================================
+   18. INDIVIDUAL ENTERING LETTERS
+   ============================================================ */
+
+.gate-entering {
+  display: flex;
+
+  color:
+    var(--skyfall-amber-hot);
+
+  font-family:
+    "Cascadia Code",
+    Consolas,
+    monospace;
+
+  font-size:
+    0.58rem;
+
+  font-weight:
+    650;
+
+  letter-spacing:
+    0.11em;
+}
+
+
+.gate-entering > span {
+  display: inline-block;
+
+  opacity: 0;
+
+  text-shadow:
+    0 0 0
+    rgba(255, 180, 80, 0);
+
+  animation:
+    gateEnteringLetter
+    1.45s
+    steps(6, end)
+    calc(
+      2.58s +
+      var(--letter) *
+      37ms
+    )
+    forwards;
+}
+
+
+/* deliberately de-synchronize selected letters */
+
+.gate-entering > span:nth-child(3n) {
+  animation-duration:
+    1.22s;
+}
+
+
+.gate-entering > span:nth-child(4n + 1) {
+  animation-delay:
+    calc(
+      2.67s +
+      var(--letter) *
+      31ms
+    );
+}
+
+
+/* ============================================================
+   19. DEPTH LINES
+   ============================================================ */
+
+.gate-depth-lines {
+  position: absolute;
+
+  z-index: 5;
+
+  inset:
+    12%;
+
+  pointer-events: none;
+
+  opacity: 0;
+}
+
+
+.gate-depth-lines span {
+  position: absolute;
+
+  left: 50%;
+
+  top: 50%;
+
+  width:
+    1px;
+
+  height:
+    45%;
+
+  transform-origin:
+    top center;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(121, 191, 255, 0.15),
+      transparent
+    );
+}
+
+
+.gate-depth-lines
+span:nth-child(1) {
+  transform:
+    rotate(42deg);
+}
+
+
+.gate-depth-lines
+span:nth-child(2) {
+  transform:
+    rotate(138deg);
+}
+
+
+.gate-depth-lines
+span:nth-child(3) {
+  transform:
+    rotate(222deg);
+}
+
+
+.gate-depth-lines
+span:nth-child(4) {
+  transform:
+    rotate(318deg);
+}
+
+
+.preloader-gate.is-open
+.gate-depth-lines {
+  animation:
+    gateDepthReveal
+    1.8s
+    ease
+    forwards;
+}
+
+
+/* ============================================================
+   20. PIECEWISE DISSOLVE
+   ============================================================ */
+
+.gate-dissolve {
+  position: absolute;
+
+  z-index: 41;
+
+  inset: 0;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  grid-template-rows:
+    repeat(3, 1fr);
+
+  pointer-events: none;
+}
+
+
+.gate-dissolve span {
+  opacity: 0;
+
+  background:
+    rgba(228, 142, 52, 0.018);
+}
+
+
+.preloader-gate.is-receding
+.gate-dissolve span {
+  animation:
+    gateCellFade
+    760ms
+    ease
+    calc(
+      var(--gate-cell) *
+      42ms
+    )
+    forwards;
+}
+
+
+/* ============================================================
+   21. LEGACY POWER-DOWN
+   ============================================================ */
+
+.preloader-gate.is-receding
+.gate-terminal,
+
+.preloader-gate.is-receding
+.gate-status,
+
+.preloader-gate.is-receding
+.gate-header,
+
+.preloader-gate.is-receding
+.gate-entry-status {
+  animation:
+    gateLegacyPowerDown
+    760ms
+    steps(6, end)
+    forwards;
+}
+
+
+.preloader-gate.is-receding
+.gate-tube span {
+  animation:
+    gateTubePowerDown
+    820ms
+    ease
+    forwards;
+}
+
+
+.preloader-gate.is-receding
+.gate-crt-noise {
+  animation:
+    gateCrtFailure
+    520ms
+    steps(4, end)
+    forwards;
+}

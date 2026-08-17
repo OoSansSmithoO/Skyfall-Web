@@ -1,0 +1,570 @@
+/* ============================================================
+   23. PANEL / SYSTEM KEYFRAMES
+   ============================================================ */
+
+@keyframes heroPanelPowerOn {
+  0% {
+    opacity:
+      0;
+
+    filter:
+      brightness(0.34)
+      saturate(0.24);
+  }
+
+  24% {
+    opacity:
+      0.48;
+
+    filter:
+      brightness(0.54)
+      saturate(0.36);
+  }
+
+  52% {
+    opacity:
+      0.82;
+
+    filter:
+      brightness(0.76)
+      saturate(0.6);
+  }
+
+  100% {
+    opacity:
+      1;
+
+    filter:
+      brightness(1)
+      saturate(1);
+  }
+}
+
+
+@keyframes heroPanelColorSettle {
+  0% {
+    box-shadow:
+      inset 0 0 36px
+      rgba(216, 154, 82, 0.09);
+  }
+
+  50% {
+    box-shadow:
+      inset 0 0 22px
+      rgba(216, 154, 82, 0.06);
+  }
+
+  100% {
+    box-shadow:
+      inset 0 0 0 1px
+      rgba(121, 191, 255, 0.025);
+  }
+}
+
+
+@keyframes heroFilamentWarmup {
+  0% {
+    opacity:
+      0;
+
+    filter:
+      blur(24px)
+      brightness(0.3);
+  }
+
+  37% {
+    opacity:
+      0.58;
+  }
+
+  59% {
+    opacity:
+      0.92;
+
+    filter:
+      blur(16px)
+      brightness(1.35);
+  }
+
+  100% {
+    opacity:
+      0.5;
+
+    filter:
+      blur(18px)
+      brightness(1);
+  }
+}
+
+
+@keyframes heroFilamentIdle {
+  0%,
+  100% {
+    opacity:
+      0.5;
+  }
+
+  46% {
+    opacity:
+      0.58;
+  }
+
+  68% {
+    opacity:
+      0.53;
+  }
+}
+
+
+@keyframes heroRasterBoot {
+  from {
+    opacity:
+      0;
+  }
+
+  to {
+    opacity:
+      0.22;
+  }
+}
+
+
+@keyframes heroElementOnline {
+  from {
+    opacity:
+      0;
+
+    transform:
+      translateY(-5px);
+  }
+
+  to {
+    opacity:
+      1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+
+@keyframes heroEarthBoot {
+  0% {
+    opacity:
+      0;
+
+    filter:
+      sepia(0.8)
+      brightness(0.55);
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.88);
+  }
+
+  45% {
+    opacity:
+      0.86;
+
+    filter:
+      sepia(0.5)
+      brightness(0.86);
+  }
+
+  100% {
+    opacity:
+      1;
+
+    filter:
+      sepia(0)
+      brightness(1);
+
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+  }
+}
+
+
+@keyframes heroOrbitBootOne {
+  from {
+    opacity:
+      0;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(-14deg)
+      scale(0.72);
+  }
+
+  to {
+    opacity:
+      1;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(-14deg)
+      scale(1);
+  }
+}
+
+
+@keyframes heroOrbitBootTwo {
+  from {
+    opacity:
+      0;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(28deg)
+      scale(0.72);
+  }
+
+  to {
+    opacity:
+      1;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(28deg)
+      scale(1);
+  }
+}
+
+
+@keyframes heroOrbitBootThree {
+  from {
+    opacity:
+      0;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(-7deg)
+      scale(0.72);
+  }
+
+  to {
+    opacity:
+      1;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(-7deg)
+      scale(1);
+  }
+}
+
+
+@keyframes heroNodeOnline {
+  from {
+    opacity:
+      0;
+
+    transform:
+      translateY(6px)
+      scale(0.84);
+  }
+
+  to {
+    opacity:
+      1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+@keyframes heroTargetOnline {
+  from {
+    opacity:
+      0;
+
+    transform:
+      translateX(8px);
+  }
+
+  to {
+    opacity:
+      1;
+
+    transform:
+      translateX(0);
+  }
+}
+
+
+@keyframes heroSimulationLampBoot {
+  0% {
+    opacity:
+      0;
+
+    background:
+      #5e3012;
+
+    box-shadow:
+      none;
+
+    transform:
+      scale(0.3);
+  }
+
+  44% {
+    opacity:
+      1;
+
+    background:
+      #ffc16c;
+
+    box-shadow:
+      0 0 4px #ffc16c,
+      0 0 11px
+      rgba(240, 160, 75, 0.78);
+
+    transform:
+      scale(1.2);
+  }
+
+  100% {
+    opacity:
+      1;
+
+    background:
+      var(--hero-blue);
+
+    box-shadow:
+      0 0 8px
+      rgba(121, 191, 255, 0.62);
+
+    transform:
+      scale(1);
+  }
+}
+
+
+@keyframes heroSimulationLampIdle {
+  0%,
+  100% {
+    opacity:
+      0.8;
+  }
+
+  50% {
+    opacity:
+      1;
+  }
+}
+
+
+@keyframes heroAcquisitionPulse {
+  0% {
+    opacity:
+      0;
+
+    transform:
+      scale(0.6);
+  }
+
+  35% {
+    opacity:
+      0.36;
+  }
+
+  100% {
+    opacity:
+      0;
+
+    transform:
+      scale(1.45);
+  }
+}
+
+
+@keyframes heroPathOnline {
+  from {
+    opacity:
+      0;
+
+    transform:
+      rotate(31deg)
+      scaleX(0);
+  }
+
+  to {
+    opacity:
+      0.62;
+
+    transform:
+      rotate(31deg)
+      scaleX(1);
+  }
+}
+
+
+@keyframes heroDataOnline {
+  from {
+    opacity:
+      0;
+  }
+
+  to {
+    opacity:
+      1;
+  }
+}
+
+
+@keyframes heroDataPacket {
+  from {
+    transform:
+      translateX(0);
+
+    opacity:
+      0;
+  }
+
+  20% {
+    opacity:
+      0.24;
+  }
+
+  80% {
+    opacity:
+      0.13;
+  }
+
+  to {
+    transform:
+      translateX(105px);
+
+    opacity:
+      0;
+  }
+}
+
+
+@keyframes heroTelemetryBoot {
+  from {
+    opacity:
+      0;
+  }
+
+  to {
+    opacity:
+      1;
+  }
+}
+
+
+@keyframes heroSequenceBankWarmup {
+  0% {
+    opacity:
+      0;
+  }
+
+  45% {
+    opacity:
+      0.72;
+  }
+
+  100% {
+    opacity:
+      0.34;
+  }
+}
+
+
+@keyframes heroSequenceRowBoot {
+  0% {
+    opacity:
+      0;
+
+    transform:
+      translateY(4px);
+
+    filter:
+      sepia(0.8)
+      brightness(0.6);
+  }
+
+  45% {
+    opacity:
+      0.82;
+
+    filter:
+      sepia(0.45)
+      brightness(0.92);
+  }
+
+  100% {
+    opacity:
+      1;
+
+    transform:
+      translateY(0);
+
+    filter:
+      sepia(0)
+      brightness(1);
+  }
+}
+
+
+@keyframes heroSequenceLampBoot {
+  0% {
+    opacity:
+      0;
+
+    transform:
+      translateY(-50%)
+      scale(0.35);
+
+    background:
+      #5d3013;
+
+    box-shadow:
+      none;
+  }
+
+  42% {
+    opacity:
+      1;
+
+    transform:
+      translateY(-50%)
+      scale(1.35);
+
+    background:
+      #ffd69a;
+
+    box-shadow:
+      0 0 4px
+      #ffd69a,
+
+      0 0 10px
+      rgba(255, 175, 75, 0.86),
+
+      0 0 18px
+      rgba(228, 110, 22, 0.48);
+  }
+
+  100% {
+    opacity:
+      0.9;
+
+    transform:
+      translateY(-50%)
+      scale(0.86);
+
+    background:
+      var(--hero-amber-hot);
+
+    box-shadow:
+      0 0 4px
+      rgba(255, 176, 79, 0.72),
+
+      0 0 10px
+      rgba(226, 111, 24, 0.38);
+  }
+}

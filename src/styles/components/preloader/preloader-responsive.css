@@ -1,0 +1,142 @@
+/* ============================================================
+   33. MOBILE
+   ============================================================ */
+
+@media (max-width: 640px) {
+  .gate-lock {
+    width:
+      144px;
+
+    height:
+      144px;
+  }
+
+
+  .gate-lock-core {
+    inset:
+      42px;
+  }
+
+
+  .gate-progress {
+    top:
+      calc(50% + 112px);
+
+    width:
+      178px;
+  }
+
+
+  .gate-entry-status {
+    top:
+      calc(50% + 148px);
+  }
+
+
+  .gate-terminal {
+    left:
+      22px;
+
+    bottom:
+      32px;
+  }
+
+
+  .gate-terminal span {
+    font-size:
+      0.36rem;
+  }
+
+
+  .gate-logo {
+    width:
+      142px;
+
+    height:
+      142px;
+  }
+
+
+  .gate-logo-half img {
+    width:
+      142px;
+
+    height:
+      142px;
+  }
+
+
+  .gate-tube {
+    width:
+      22px;
+
+    height:
+      88px;
+  }
+}
+
+
+/* ============================================================
+   34. REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .gate-crt-noise,
+  .gate-cold-start,
+  .gate-terminal span,
+  .gate-header,
+  .gate-status strong,
+  .gate-status span,
+  .gate-tube span,
+  .gate-lock-ring,
+  .gate-logo,
+  .gate-entering > span,
+  .gate-progress span {
+    animation:
+      none !important;
+  }
+
+
+  .gate-terminal span,
+  .gate-header,
+  .gate-status strong,
+  .gate-status span,
+  .gate-logo,
+  .gate-entering > span {
+    opacity:
+      1;
+  }
+
+
+  .gate-tube span {
+    opacity:
+      0.9;
+
+    transform:
+      translate(-50%, -50%)
+      scaleY(1);
+
+    background:
+      var(--skyfall-amber-hot);
+  }
+
+
+  .preloader-gate.is-open
+  .gate-door-left {
+    transform:
+      translate3d(-104%, 0, 0);
+
+    animation:
+      none !important;
+  }
+
+
+  .preloader-gate.is-open
+  .gate-door-right {
+    transform:
+      translate3d(104%, 0, 0);
+
+    animation:
+      none !important;
+  }
+}

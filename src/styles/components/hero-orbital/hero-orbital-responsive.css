@@ -1,0 +1,236 @@
+/* ============================================================
+   24. TABLET
+   ============================================================ */
+
+@media (max-width: 1080px) {
+  .hero-orbital-network {
+    max-width:
+      720px;
+
+    margin:
+      0 auto;
+  }
+}
+
+
+/* ============================================================
+   25. MOBILE
+   ============================================================ */
+
+@media (max-width: 640px) {
+  .hero-orbital-network {
+    min-height:
+      475px;
+  }
+
+
+  .hero-network-topline {
+    padding:
+      0
+      13px;
+  }
+
+
+  .hero-earth-field {
+    min-height:
+      330px;
+  }
+
+
+  .hero-earth {
+    width:
+      150px;
+
+    height:
+      150px;
+  }
+
+
+  .hero-earth-glow {
+    width:
+      190px;
+
+    height:
+      190px;
+  }
+
+
+  .hero-earth-field::after {
+    width:
+      260px;
+
+    height:
+      260px;
+  }
+
+
+  .hero-orbit-one {
+    width:
+      280px;
+
+    height:
+      135px;
+  }
+
+
+  .hero-orbit-two {
+    width:
+      245px;
+
+    height:
+      180px;
+  }
+
+
+  .hero-orbit-three {
+    width:
+      180px;
+
+    height:
+      245px;
+  }
+
+
+  .hero-node-core,
+  .hero-node-logo {
+    width:
+      32px;
+
+    height:
+      32px;
+  }
+
+
+  .hero-node-logo img {
+    width:
+      23px;
+
+    height:
+      23px;
+  }
+
+
+  .hero-node small,
+  .hero-target small {
+    font-size:
+      0.28rem;
+  }
+
+
+  .hero-map-readout {
+    display:
+      none;
+  }
+
+
+  .hero-mission-sequence {
+    min-height:
+      122px;
+  }
+
+
+  .hero-sequence-header,
+  .hero-sequence-row {
+    padding:
+      0
+      13px;
+  }
+}
+
+
+/* ============================================================
+   26. TOUCH DEVICES
+   ============================================================ */
+
+@media (hover: none),
+(pointer: coarse) {
+  .hero-network-topline,
+  .hero-node small,
+  .hero-target small,
+  .hero-map-readout,
+  .hero-sequence-header,
+  .hero-sequence-row {
+    text-rendering:
+      optimizeLegibility;
+  }
+}
+
+
+/* ============================================================
+   27. REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-orbital-network,
+  .hero-orbital-network::before,
+  .hero-orbital-network::after,
+  .hero-network-topline,
+  .hero-earth-glow,
+  .hero-earth,
+  .hero-orbit,
+  .hero-node,
+  .hero-target,
+  .hero-link-stream,
+  .hero-map-readout,
+  .hero-mission-sequence,
+  .hero-mission-sequence::before,
+  .hero-sequence-row,
+  .hero-sequence-row::before,
+  .hero-sim-status i {
+    opacity:
+      1 !important;
+
+    animation:
+      none !important;
+
+    filter:
+      none !important;
+  }
+
+
+  .hero-acquisition-ring {
+    display:
+      none;
+  }
+
+
+  .hero-intercept-path {
+    opacity:
+      0.55;
+
+    transform:
+      rotate(31deg)
+      scaleX(1);
+
+    animation:
+      none !important;
+  }
+
+
+  .hero-link-stream span {
+    animation:
+      none !important;
+  }
+
+
+  .hero-node {
+    transform:
+      none;
+  }
+
+
+  .hero-earth {
+    transform:
+      translate(-50%, -50%);
+  }
+
+
+  .hero-sim-status i {
+    background:
+      var(--hero-blue);
+
+    box-shadow:
+      0 0 8px
+      rgba(121, 191, 255, 0.6);
+  }
+}

@@ -1,0 +1,1062 @@
+/* ============================================================
+   35. LEGACY POWER TRANSFER
+   TUBES / POWER RAIL → DOOR DRIVE
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   35.1 SIDE TUBE ASSEMBLIES POWER DOWN
+   ------------------------------------------------------------ */
+
+.preloader-gate.is-authorized
+.gate-tube {
+  animation:
+    gateTubeHousingTransfer
+    720ms
+    ease
+    forwards;
+}
+
+
+.preloader-gate.is-authorized
+.gate-tube span {
+  animation:
+    gateTubeFilamentTransfer
+    720ms
+    steps(5, end)
+    forwards;
+}
+
+
+/* ------------------------------------------------------------
+   35.2 HORIZONTAL POWER RAIL POWER DOWN
+   ------------------------------------------------------------ */
+
+.preloader-gate.is-authorized
+.gate-progress {
+  animation:
+    gateProgressHousingTransfer
+    680ms
+    ease
+    forwards;
+}
+
+
+.preloader-gate.is-authorized
+.gate-progress span {
+  animation:
+    gateProgressTransfer
+    680ms
+    ease
+    forwards;
+}
+
+
+/* ============================================================
+   36. POWER TRANSFER KEYFRAMES
+   ============================================================ */
+
+@keyframes gateTubeHousingTransfer {
+  0% {
+    opacity:
+      1;
+
+    filter:
+      brightness(1);
+  }
+
+  18% {
+    opacity:
+      0.92;
+
+    filter:
+      brightness(1.18);
+  }
+
+  31% {
+    opacity:
+      0.42;
+  }
+
+  40% {
+    opacity:
+      0.82;
+
+    filter:
+      brightness(1.34);
+  }
+
+  58% {
+    opacity:
+      0.28;
+  }
+
+  72% {
+    opacity:
+      0.16;
+
+    filter:
+      brightness(0.54);
+  }
+
+  100% {
+    opacity:
+      0;
+
+    filter:
+      brightness(0.2);
+  }
+}
+
+
+@keyframes gateTubeFilamentTransfer {
+  0% {
+    opacity:
+      0.9;
+
+    background:
+      var(--skyfall-amber-hot);
+
+    box-shadow:
+      0 0 6px
+      rgba(255, 181, 85, 0.82),
+
+      0 0 18px
+      rgba(226, 111, 24, 0.52);
+  }
+
+  18% {
+    opacity:
+      1;
+
+    background:
+      #ffd69a;
+
+    box-shadow:
+      0 0 8px
+      #ffd69a,
+
+      0 0 26px
+      rgba(255, 167, 59, 0.95);
+  }
+
+  31% {
+    opacity:
+      0.2;
+  }
+
+  42% {
+    opacity:
+      0.86;
+
+    background:
+      #ffae50;
+  }
+
+  57% {
+    opacity:
+      0.16;
+  }
+
+  72% {
+    opacity:
+      0.3;
+
+    background:
+      #91451a;
+
+    box-shadow:
+      0 0 5px
+      rgba(145, 69, 26, 0.28);
+  }
+
+  100% {
+    opacity:
+      0;
+
+    background:
+      #48200c;
+
+    box-shadow:
+      none;
+  }
+}
+
+
+@keyframes gateProgressHousingTransfer {
+  0% {
+    opacity:
+      1;
+  }
+
+  28% {
+    opacity:
+      0.92;
+  }
+
+  42% {
+    opacity:
+      0.3;
+  }
+
+  54% {
+    opacity:
+      0.76;
+  }
+
+  72% {
+    opacity:
+      0.16;
+  }
+
+  100% {
+    opacity:
+      0;
+  }
+}
+
+
+@keyframes gateProgressTransfer {
+  0% {
+    opacity:
+      1;
+
+    filter:
+      brightness(1);
+  }
+
+  22% {
+    opacity:
+      1;
+
+    filter:
+      brightness(1.7);
+  }
+
+  36% {
+    opacity:
+      0.25;
+  }
+
+  49% {
+    opacity:
+      0.76;
+  }
+
+  67% {
+    opacity:
+      0.15;
+  }
+
+  100% {
+    opacity:
+      0;
+
+    filter:
+      brightness(0.25);
+  }
+}
+
+
+/* ============================================================
+   37. DOOR POWER BUS
+   LOST HARDWARE RECEIVING CURRENT AGAIN
+   ============================================================ */
+
+.gate-door::after {
+  content: "";
+
+  position:
+    absolute;
+
+  z-index:
+    4;
+
+  top:
+    0;
+
+  bottom:
+    0;
+
+  width:
+    4px;
+
+  pointer-events:
+    none;
+
+  opacity:
+    0;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(255, 159, 54, 0.22) 18%,
+      rgba(255, 211, 145, 0.9) 48%,
+      rgba(255, 146, 38, 0.24) 76%,
+      transparent 100%
+    );
+
+  filter:
+    blur(1px);
+
+  box-shadow:
+    0 0 8px
+    rgba(255, 162, 57, 0.45),
+
+    0 0 24px
+    rgba(224, 109, 20, 0.24);
+}
+
+
+.gate-door-left::after {
+  right:
+    8px;
+}
+
+
+.gate-door-right::after {
+  left:
+    8px;
+}
+
+
+/* Door bus starts receiving current during authorization */
+
+.preloader-gate.is-authorized
+.gate-door::after {
+  animation:
+    gateDoorBusCharge
+    760ms
+    steps(6, end)
+    forwards;
+}
+
+
+/* ============================================================
+   38. CENTER SEAM SURGE
+   ============================================================ */
+
+.preloader-gate.is-authorized
+.gate-door-left {
+  box-shadow:
+    inset -1px 0 0
+    rgba(255, 173, 74, 0.08),
+
+    inset 0 0 90px
+    rgba(0, 0, 0, 0.72);
+}
+
+
+.preloader-gate.is-authorized
+.gate-door-right {
+  box-shadow:
+    inset 1px 0 0
+    rgba(255, 173, 74, 0.08),
+
+    inset 0 0 90px
+    rgba(0, 0, 0, 0.72);
+}
+
+
+/* ============================================================
+   39. DOOR BUS KEYFRAME
+   ============================================================ */
+
+@keyframes gateDoorBusCharge {
+  0% {
+    opacity:
+      0;
+
+    filter:
+      brightness(0.25)
+      blur(2px);
+  }
+
+  17% {
+    opacity:
+      0.18;
+  }
+
+  25% {
+    opacity:
+      0.72;
+
+    filter:
+      brightness(1.1)
+      blur(1px);
+  }
+
+  32% {
+    opacity:
+      0.12;
+  }
+
+  44% {
+    opacity:
+      0.88;
+  }
+
+  56% {
+    opacity:
+      0.28;
+  }
+
+  69% {
+    opacity:
+      1;
+
+    filter:
+      brightness(1.8)
+      blur(0);
+  }
+
+  82% {
+    opacity:
+      0.62;
+  }
+
+  100% {
+    opacity:
+      0.34;
+
+    filter:
+      brightness(0.9)
+      blur(1px);
+  }
+}
+
+
+/* ============================================================
+   40. STRONGER DOOR RELEASE
+   OLD MOTOR / CABLE / CONTACTOR EFFECT
+   ============================================================ */
+
+.preloader-gate.is-open
+.gate-door-left {
+  animation:
+    gateDoorLeftPoweredRelease
+    1.78s
+    cubic-bezier(
+      0.72,
+      0,
+      0.2,
+      1
+    )
+    forwards;
+}
+
+
+.preloader-gate.is-open
+.gate-door-right {
+  animation:
+    gateDoorRightPoweredRelease
+    1.78s
+    cubic-bezier(
+      0.72,
+      0,
+      0.2,
+      1
+    )
+    forwards;
+}
+
+
+/* ============================================================
+   41. POWERED DOOR KEYFRAMES
+   ============================================================ */
+
+@keyframes gateDoorLeftPoweredRelease {
+  0% {
+    transform:
+      translate3d(0, 0, 0);
+
+    filter:
+      brightness(1);
+  }
+
+  4% {
+    transform:
+      translate3d(5px, 0, 0);
+
+    filter:
+      brightness(1.12);
+  }
+
+  8% {
+    transform:
+      translate3d(-3px, 0, 0);
+  }
+
+  12% {
+    transform:
+      translate3d(3px, 0, 0);
+
+    filter:
+      brightness(1.26);
+  }
+
+  16% {
+    transform:
+      translate3d(-1px, 0, 0);
+  }
+
+  21% {
+    transform:
+      translate3d(0, 0, 0);
+
+    filter:
+      brightness(1);
+  }
+
+  29% {
+    transform:
+      translate3d(-3%, 0, 0);
+  }
+
+  48% {
+    transform:
+      translate3d(-27%, 0, 0);
+  }
+
+  72% {
+    transform:
+      translate3d(-70%, 0, 0);
+  }
+
+  100% {
+    transform:
+      translate3d(-104%, 0, 0);
+  }
+}
+
+
+@keyframes gateDoorRightPoweredRelease {
+  0% {
+    transform:
+      translate3d(0, 0, 0);
+
+    filter:
+      brightness(1);
+  }
+
+  4% {
+    transform:
+      translate3d(-5px, 0, 0);
+
+    filter:
+      brightness(1.12);
+  }
+
+  8% {
+    transform:
+      translate3d(3px, 0, 0);
+  }
+
+  12% {
+    transform:
+      translate3d(-3px, 0, 0);
+
+    filter:
+      brightness(1.26);
+  }
+
+  16% {
+    transform:
+      translate3d(1px, 0, 0);
+  }
+
+  21% {
+    transform:
+      translate3d(0, 0, 0);
+
+    filter:
+      brightness(1);
+  }
+
+  29% {
+    transform:
+      translate3d(3%, 0, 0);
+  }
+
+  48% {
+    transform:
+      translate3d(27%, 0, 0);
+  }
+
+  72% {
+    transform:
+      translate3d(70%, 0, 0);
+  }
+
+  100% {
+    transform:
+      translate3d(104%, 0, 0);
+  }
+}
+
+
+/* ============================================================
+   42. OLD FACILITY ANTECHAMBER
+   ============================================================ */
+
+.gate-antechamber {
+  position:
+    absolute;
+
+  z-index:
+    -1;
+
+  inset:
+    0;
+
+  overflow:
+    hidden;
+
+  pointer-events:
+    none;
+
+  opacity:
+    0;
+
+  perspective:
+    900px;
+
+  background:
+    radial-gradient(
+      ellipse at center 55%,
+      rgba(18, 29, 36, 0.86),
+      rgba(5, 9, 12, 0.98) 58%,
+      #020405 88%
+    );
+}
+
+
+/* ============================================================
+   43. ANTECHAMBER WALL / CAVERN DEPTH
+   ============================================================ */
+
+.gate-antechamber::before {
+  content: "";
+
+  position:
+    absolute;
+
+  inset:
+    -10%;
+
+  pointer-events:
+    none;
+
+  background:
+    radial-gradient(
+      ellipse at 10% 50%,
+      rgba(75, 78, 73, 0.13),
+      transparent 34%
+    ),
+
+    radial-gradient(
+      ellipse at 90% 48%,
+      rgba(69, 75, 72, 0.12),
+      transparent 36%
+    ),
+
+    repeating-linear-gradient(
+      112deg,
+      transparent 0,
+      transparent 74px,
+      rgba(157, 148, 125, 0.018) 75px,
+      transparent 78px
+    );
+
+  filter:
+    contrast(1.1);
+}
+
+
+/* ============================================================
+   44. PERSPECTIVE DEPTH LINES
+   ============================================================ */
+
+.gate-antechamber-depth {
+  position:
+    absolute;
+
+  inset:
+    8%;
+
+  opacity:
+    0.22;
+}
+
+
+.gate-antechamber-depth span {
+  position:
+    absolute;
+
+  left:
+    50%;
+
+  top:
+    51%;
+
+  width:
+    1px;
+
+  height:
+    72%;
+
+  transform-origin:
+    top center;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(155, 174, 184, 0.14),
+      transparent 74%
+    );
+}
+
+
+.gate-antechamber-depth
+span:nth-child(1) {
+  transform:
+    rotate(38deg);
+}
+
+
+.gate-antechamber-depth
+span:nth-child(2) {
+  transform:
+    rotate(142deg);
+}
+
+
+.gate-antechamber-depth
+span:nth-child(3) {
+  transform:
+    rotate(218deg);
+}
+
+
+.gate-antechamber-depth
+span:nth-child(4) {
+  transform:
+    rotate(322deg);
+}
+
+
+/* ============================================================
+   45. FLOOR PLANE
+   ============================================================ */
+
+.gate-antechamber-floor {
+  position:
+    absolute;
+
+  left:
+    50%;
+
+  bottom:
+    -10%;
+
+  width:
+    130%;
+
+  height:
+    55%;
+
+  transform:
+    translateX(-50%)
+    perspective(650px)
+    rotateX(68deg);
+
+  transform-origin:
+    center top;
+
+  opacity:
+    0.28;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 79px,
+      rgba(126, 153, 170, 0.055) 80px,
+      transparent 81px
+    ),
+
+    repeating-linear-gradient(
+      180deg,
+      transparent 0,
+      transparent 54px,
+      rgba(126, 153, 170, 0.045) 55px,
+      transparent 56px
+    );
+}
+
+
+/* ============================================================
+   46. DISTANT MODERN FACILITY LIGHT
+   ============================================================ */
+
+.gate-antechamber-light {
+  position:
+    absolute;
+
+  left:
+    50%;
+
+  top:
+    50%;
+
+  width:
+    22%;
+
+  height:
+    28%;
+
+  transform:
+    translate(-50%, -50%)
+    scale(0.5);
+
+  opacity:
+    0;
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(178, 222, 255, 0.34),
+      rgba(121, 191, 255, 0.12) 38%,
+      rgba(46, 98, 137, 0.035) 60%,
+      transparent 76%
+    );
+
+  filter:
+    blur(12px);
+}
+
+
+/* ============================================================
+   47. ANTECHAMBER APPEARS AFTER DOORS BEGIN MOVING
+   ============================================================ */
+
+.preloader-gate.is-open
+.gate-antechamber {
+  animation:
+    gateAntechamberReveal
+    1.65s
+    ease
+    310ms
+    forwards;
+}
+
+
+.preloader-gate.is-open
+.gate-antechamber-light {
+  animation:
+    gateAntechamberLight
+    1.7s
+    cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    )
+    440ms
+    forwards;
+}
+
+
+.preloader-gate.is-open
+.gate-antechamber-depth {
+  animation:
+    gateAntechamberWalk
+    1.75s
+    cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    )
+    360ms
+    forwards;
+}
+
+
+.preloader-gate.is-open
+.gate-antechamber-floor {
+  animation:
+    gateAntechamberFloorMove
+    1.75s
+    cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    )
+    360ms
+    forwards;
+}
+
+
+/* ============================================================
+   48. ANTECHAMBER KEYFRAMES
+   ============================================================ */
+
+@keyframes gateAntechamberReveal {
+  0% {
+    opacity:
+      0;
+
+    filter:
+      brightness(0.45);
+  }
+
+  28% {
+    opacity:
+      0.22;
+  }
+
+  58% {
+    opacity:
+      0.72;
+
+    filter:
+      brightness(0.76);
+  }
+
+  100% {
+    opacity:
+      1;
+
+    filter:
+      brightness(1);
+  }
+}
+
+
+@keyframes gateAntechamberLight {
+  0% {
+    opacity:
+      0;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.38);
+  }
+
+  42% {
+    opacity:
+      0.18;
+  }
+
+  72% {
+    opacity:
+      0.44;
+  }
+
+  100% {
+    opacity:
+      0.28;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.1);
+  }
+}
+
+
+@keyframes gateAntechamberWalk {
+  0% {
+    opacity:
+      0.08;
+
+    transform:
+      scale(0.72);
+  }
+
+  45% {
+    opacity:
+      0.28;
+  }
+
+  100% {
+    opacity:
+      0.12;
+
+    transform:
+      scale(1.36);
+  }
+}
+
+
+@keyframes gateAntechamberFloorMove {
+  0% {
+    opacity:
+      0.12;
+
+    transform:
+      translateX(-50%)
+      perspective(650px)
+      rotateX(68deg)
+      scale(0.7);
+  }
+
+  45% {
+    opacity:
+      0.32;
+  }
+
+  100% {
+    opacity:
+      0.12;
+
+    transform:
+      translateX(-50%)
+      perspective(650px)
+      rotateX(68deg)
+      scale(1.38);
+  }
+}
+
+
+/* ============================================================
+   49. CROSS THE THRESHOLD
+   ============================================================ */
+
+.preloader-gate.is-receding
+.gate-antechamber {
+  animation:
+    gateAntechamberExit
+    1.05s
+    ease
+    forwards;
+}
+
+
+@keyframes gateAntechamberExit {
+  0% {
+    opacity:
+      1;
+
+    transform:
+      scale(1);
+  }
+
+  55% {
+    opacity:
+      0.48;
+
+    transform:
+      scale(1.08);
+  }
+
+  100% {
+    opacity:
+      0;
+
+    transform:
+      scale(1.16);
+  }
+}
