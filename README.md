@@ -539,11 +539,17 @@ Skyfall-Web/
 ├── public/
 │   ├── brand/
 │   │   ├── manifestation.png
-│   │   └── social.jpg
-│   ├── industries/
-│   │   └── numbered industry imagery
+│   │   └── ProductionLogo.png
+│   ├── images/
+│   │   ├── social/
+│   │   │   └── social.jpg
+│   │   ├── industries/
+│   │   │   └── normalized industry imagery
+│   │   └── products/n-series/cleans/
+│   │       ├── hero/
+│   │       ├── concepts/
+│   │       └── public/
 │   ├── static/
-│   │   ├── ProductionLogo.png
 │   │   └── icons.svg
 │   ├── robots.txt
 │   └── sitemap.xml

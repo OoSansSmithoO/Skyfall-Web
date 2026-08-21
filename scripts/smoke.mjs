@@ -33,17 +33,18 @@ if (existsSync(htmlPath)) {
 
 const criticalAssets = [
   'brand/manifestation.png',
-  'brand/social.jpg',
-  'industries/01-commercial-space.png',
-  'industries/02-defense-national-security.png',
-  'industries/03-civil-space.png',
-  'industries/04-satellite-operators.png',
-  'industries/05-spacecraft-manufacturers.png',
-  'industries/06-launch-mission-providers.png',
-  'industries/07-research-universities.png',
-  'industries/08-orbital-servicing-logistics.png',
-  'industries/09-space-sustainability.png',
-  'industries/10-space-domain-awareness-on-orbit-inspection.png',
+  'brand/ProductionLogo.png',
+  'images/social/social.jpg',
+  'images/industries/commercial-space.png',
+  'images/industries/defense-national-security.png',
+  'images/industries/civil-space.png',
+  'images/industries/satellite-operators.png',
+  'images/industries/spacecraft-manufacturing.png',
+  'images/industries/launch-mission-providers.png',
+  'images/industries/research-universities.png',
+  'images/industries/orbital-servicing-logistics.png',
+  'images/industries/space-sustainability.png',
+  'images/industries/space-domain-awareness.png',
 ]
 
 for (const asset of criticalAssets) {

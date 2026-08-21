@@ -10,7 +10,7 @@ const industries = [
       'SERVICING',
     ],
     image:
-      'industries/01-commercial-space.png',
+      'images/industries/commercial-space.png',
   },
   {
     number: '02',
@@ -23,7 +23,7 @@ const industries = [
       'SPACE DOMAIN',
     ],
     image:
-      'industries/02-defense-national-security.png',
+      'images/industries/defense-national-security.png',
   },
   {
     number: '03',
@@ -36,7 +36,7 @@ const industries = [
       'RESEARCH',
     ],
     image:
-      'industries/03-civil-space.png',
+      'images/industries/civil-space.png',
   },
   {
     number: '04',
@@ -49,7 +49,7 @@ const industries = [
       'RECOVERY',
     ],
     image:
-      'industries/04-satellite-operators.png',
+      'images/industries/satellite-operators.png',
   },
   {
     number: '05',
@@ -62,7 +62,7 @@ const industries = [
       'INTEGRATION',
     ],
     image:
-      'industries/05-spacecraft-manufacturers.png',
+      'images/industries/spacecraft-manufacturing.png',
   },
   {
     number: '06',
@@ -75,7 +75,7 @@ const industries = [
       'OPERATIONS',
     ],
     image:
-      'industries/06-launch-mission-providers.png',
+      'images/industries/launch-mission-providers.png',
   },
   {
     number: '07',
@@ -88,7 +88,7 @@ const industries = [
       'SIMULATION',
     ],
     image:
-      'industries/07-research-universities.png',
+      'images/industries/research-universities.png',
   },
   {
     number: '08',
@@ -101,7 +101,7 @@ const industries = [
       'LOGISTICS',
     ],
     image:
-      'industries/08-orbital-servicing-logistics.png',
+      'images/industries/orbital-servicing-logistics.png',
   },
   {
     number: '09',
@@ -114,7 +114,7 @@ const industries = [
       'SUSTAINABILITY',
     ],
     image:
-      'industries/09-space-sustainability.png',
+      'images/industries/space-sustainability.png',
   },
   {
     number: '10',
@@ -127,12 +127,8 @@ const industries = [
       'ON-ORBIT',
     ],
 
-    /*
-     * Replace with the exact filename if your
-     * Windows Explorer name differs.
-     */
     image:
-      'industries/10-space-domain-awareness-on-orbit-inspection.png',
+      'images/industries/space-domain-awareness.png',
   },
 ]
 
